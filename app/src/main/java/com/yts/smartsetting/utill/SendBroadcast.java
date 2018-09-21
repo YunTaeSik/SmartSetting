@@ -9,4 +9,9 @@ public class SendBroadcast {
         Intent send = new Intent(Keys.EDIT_EAR);
         context.sendBroadcast(send);
     }
+
+    public static void buleToothEdit(Context context) {
+        Intent send = new Intent(Keys.EDIT_BLUE_TOOTH);
+        context.sendBroadcast(send);
+    }
 }

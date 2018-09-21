@@ -127,6 +127,12 @@ public class BaseActivity extends AppCompatActivity implements BaseCallback {
                 SharedPrefsUtils.setStringPreference(this, Keys.EAR_NAME, name);
                 SharedPrefsUtils.setStringPreference(this, Keys.EAR_PACKAGENAME, packageName);
                 SendBroadcast.earEdit(this);
+            } else if (kind.equals(Keys.BLUE_TOOTH)) {
+                String name = resolveInfo.activityInfo.loadLabel(getPackageManager()).toString();
+                String packageName = resolveInfo.activityInfo.packageName;
+                SharedPrefsUtils.setStringPreference(this, Keys.BLUE_TOOTH_NAME, name);
+                SharedPrefsUtils.setStringPreference(this, Keys.BLUE_TOOTH_PACKAGENAME, packageName);
+                SendBroadcast.buleToothEdit(this);
             }
         }
     }

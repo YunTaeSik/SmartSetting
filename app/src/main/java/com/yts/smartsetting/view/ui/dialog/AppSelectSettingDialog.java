@@ -16,6 +16,7 @@ import com.yts.smartsetting.callback.BaseCallback;
 import com.yts.smartsetting.callback.SettingCallback;
 import com.yts.smartsetting.databinding.AppSelectSettingBinding;
 import com.yts.smartsetting.utill.Keys;
+import com.yts.smartsetting.utill.SharedPrefsUtils;
 import com.yts.smartsetting.view.viewmodel.SettingViewModel;
 
 public class AppSelectSettingDialog extends DialogFragment implements SettingCallback {
@@ -43,8 +44,18 @@ public class AppSelectSettingDialog extends DialogFragment implements SettingCal
         model = ViewModelProviders.of(this).get(SettingViewModel.class);
         model.setBaseCallback((BaseCallback) getActivity());
         model.setSettingCallback(this);
-        model.setKind(getArguments().getString(Keys.KIND));
+        model.setKind(getActivity(), getArguments().getString(Keys.KIND));
         binding.setModel(model);
+        binding.setLifecycleOwner(this);
+    }
+
+    @Override
+    public void saveEnable(String kind, boolean enable) {
+        if (kind.equals(Keys.EAR)) {
+            SharedPrefsUtils.setBooleanPreference(getActivity(), Keys.EAR_ENABLE, enable);
+        } else if (kind.equals(Keys.BLUE_TOOTH)) {
+            SharedPrefsUtils.setBooleanPreference(getActivity(), Keys.BLUE_TOOTH_ENABLE, enable);
+        }
     }
 
     @Override

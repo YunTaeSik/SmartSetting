@@ -33,6 +33,7 @@ public class AppInfoViewModel extends BaseViewModel {
     public void saveApp() {
         if (baseCallback != null) {
             baseCallback.save(kind, resolveInfo);
+            close();
         }
         //    SharedPrefsUtils.setStringPreference()
     }

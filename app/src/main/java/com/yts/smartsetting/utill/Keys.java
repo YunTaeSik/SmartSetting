@@ -19,4 +19,5 @@ public class Keys {
 
     //브로드 캐스트 리시버
     public static final String EDIT_EAR = "editEar";
+    public static final String EDIT_BLUE_TOOTH = "editBlueTooth";
 }

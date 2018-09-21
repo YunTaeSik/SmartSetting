@@ -60,7 +60,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp" />
+                android:layout_marginRight="16dp"
+                android:checked="@{model.isEnable}"
+                android:onClick="@{(v)->model.enable(v)}" />
         </LinearLayout>
 
         <View style="@style/lineView" />

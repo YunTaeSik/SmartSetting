@@ -43,5 +43,6 @@ public class AppSelectDialog extends DialogFragment {
         model.setKind(getArguments().getString(Keys.KIND));
         model.getResolveInfoList(getActivity());
         binding.setModel(model);
+        binding.setLifecycleOwner(this);
     }
 }
