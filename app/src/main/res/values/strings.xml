@@ -1,7 +1,13 @@
 <resources>
     <string name="app_name">SmartSetting</string>
 
+    <string name="connect_earphone">"If I connect my earphone,"</string>
+    <string name="connect_bluetooth">"If I connect my bluetooth,"</string>
+
 
     <!--guide-->
     <string name="msg_quit">"Pressing the "back" button ends."</string>
+    <string name="msg_earphone">"Please select an app to run automatically"</string>
+    <string name="msg_bluetooth">"Please select an app to run automatically"</string>
+
 </resources>

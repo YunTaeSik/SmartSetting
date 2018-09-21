@@ -10,16 +10,16 @@ import android.support.v7.app.AppCompatActivity;
 import android.transition.TransitionInflater;
 import android.view.inputmethod.InputMethodManager;
 
+import com.yts.smartsetting.callback.BaseCallback;
 import com.yts.smartsetting.utill.ToastMake;
 
 import io.reactivex.disposables.CompositeDisposable;
 
 
-public class BaseActivity extends AppCompatActivity {
+public class BaseActivity extends AppCompatActivity implements BaseCallback {
     public InputMethodManager inputMethodManager;
 
     public CompositeDisposable compositeDisposable;
-
 
     //backpress
     private static final int TIME_INTERVAL = 2000; // # milliseconds, desired time passed between two back presses.
@@ -32,11 +32,6 @@ public class BaseActivity extends AppCompatActivity {
         compositeDisposable = new CompositeDisposable();
     }
 
-    public void hideKeyboard() { //키보드 가리는 함수
-        if (inputMethodManager != null && getCurrentFocus() != null) {
-            inputMethodManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
-        }
-    }
 
     @Override
     protected void onPause() {
@@ -57,7 +52,7 @@ public class BaseActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() { //두번클릭해야 종료
         int childFragmentSize = getSupportFragmentManager().getFragments().size();
-        if (childFragmentSize > 5) { //5개인 이유? MainFragment 4개 + SupportRequestManagerFragment{6d43a4c #5 com.bumptech.glide.manager}{parent=null} 이게 추가되어서.. glide module 떄문에 생성되는건가? 총 5개
+        if (childFragmentSize > 0) { //5개인 이유? MainFragment 4개 + SupportRequestManagerFragment{6d43a4c #5 com.bumptech.glide.manager}{parent=null} 이게 추가되어서.. glide module 떄문에 생성되는건가? 총 5개
             super.onBackPressed();
         } else {
             if (mBackPressed + TIME_INTERVAL > System.currentTimeMillis()) {
@@ -105,5 +100,17 @@ public class BaseActivity extends AppCompatActivity {
                 .addToBackStack(fragmentTag)
                 .add(android.R.id.content, dialogFragment)
                 .commit();
+    }
+
+    @Override
+    public void close() {
+        hideKeyboard();
+        onBackPressed();
+    }
+
+    public void hideKeyboard() { //키보드 가리는 함수
+        if (inputMethodManager != null && getCurrentFocus() != null) {
+            inputMethodManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
+        }
     }
 }
