@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">SmartSetting</string>
+
+
+    <!--guide-->
+    <string name="msg_quit">"Pressing the "back" button ends."</string>
 </resources>
