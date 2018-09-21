@@ -1,10 +1,20 @@
 package com.yts.smartsetting;
 
 import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.support.multidex.MultiDex;
 import android.support.multidex.MultiDexApplication;
 
+import com.firebase.jobdispatcher.FirebaseJobDispatcher;
+import com.firebase.jobdispatcher.GooglePlayDriver;
+import com.firebase.jobdispatcher.Job;
+import com.firebase.jobdispatcher.Lifetime;
+import com.firebase.jobdispatcher.RetryStrategy;
+import com.firebase.jobdispatcher.Trigger;
 import com.yts.smartsetting.data.realm.Migration;
+import com.yts.smartsetting.receiver.ServiceReceiver;
+import com.yts.smartsetting.service.SmartSettingJobService;
 
 import io.realm.Realm;
 import io.realm.RealmConfiguration;
@@ -23,6 +33,17 @@ public class MyApplication extends MultiDexApplication {
                 .deleteRealmIfMigrationNeeded()
                 .build();
         Realm.setDefaultConfiguration(config);
+
+
+        FirebaseJobDispatcher dispatcher = new FirebaseJobDispatcher(new GooglePlayDriver(this));
+        Job myJob = dispatcher.newJobBuilder()
+                .setService(SmartSettingJobService.class) // the JobService that will be called
+                .setTag(SmartSettingJobService.class.getSimpleName())        // uniquely identifies the job
+                .setLifetime(Lifetime.FOREVER)
+                .setReplaceCurrent(true)
+                .setRetryStrategy(RetryStrategy.DEFAULT_EXPONENTIAL)
+                .build();
+        dispatcher.mustSchedule(myJob);
     }
 
     @Override
