@@ -1,5 +1,6 @@
 package com.yts.smartsetting;
 
+import android.content.pm.ResolveInfo;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -11,6 +12,9 @@ import android.transition.TransitionInflater;
 import android.view.inputmethod.InputMethodManager;
 
 import com.yts.smartsetting.callback.BaseCallback;
+import com.yts.smartsetting.utill.Keys;
+import com.yts.smartsetting.utill.SendBroadcast;
+import com.yts.smartsetting.utill.SharedPrefsUtils;
 import com.yts.smartsetting.utill.ToastMake;
 
 import io.reactivex.disposables.CompositeDisposable;
@@ -111,6 +115,19 @@ public class BaseActivity extends AppCompatActivity implements BaseCallback {
     public void hideKeyboard() { //키보드 가리는 함수
         if (inputMethodManager != null && getCurrentFocus() != null) {
             inputMethodManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
+        }
+    }
+
+    @Override
+    public void save(String kind, ResolveInfo resolveInfo) {
+        if (resolveInfo != null) {
+            if (kind.equals(Keys.EAR)) {
+                String name = resolveInfo.activityInfo.loadLabel(getPackageManager()).toString();
+                String packageName = resolveInfo.activityInfo.packageName;
+                SharedPrefsUtils.setStringPreference(this, Keys.EAR_NAME, name);
+                SharedPrefsUtils.setStringPreference(this, Keys.EAR_PACKAGENAME, packageName);
+                SendBroadcast.earEdit(this);
+            }
         }
     }
 }

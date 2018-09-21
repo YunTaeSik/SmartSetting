@@ -1,7 +1,6 @@
-package com.yts.smartsetting.viewmodel;
+package com.yts.smartsetting.view.viewmodel;
 
 import android.arch.lifecycle.ViewModel;
-import android.content.Context;
 
 import com.yts.smartsetting.callback.BaseCallback;
 

@@ -1,5 +1,15 @@
 <resources>
     <string name="app_name">SmartSetting</string>
+    <string name="setting">"Setting"</string>
+    <string name="use">"Use"</string>
+    <string name="enabled">"Enabled"</string>
+
+    <string name="select_app">"Select App"</string>
+
+    <string name="launch_the_app">"Launch the %s app."</string>
+
+    <string name="no_app_selected">"No apps selected."</string>
+    <string name="no_app_available">"No app available to choose from."</string>
 
     <string name="connect_earphone">"If I connect my earphone,"</string>
     <string name="connect_bluetooth">"If I connect my bluetooth,"</string>

@@ -4,22 +4,22 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <data class="EarPhoneSettingBinding">
+    <data class="AppInfoBinding">
 
         <import type="android.view.View" />
 
         <variable
             name="model"
-            type="com.yts.smartsetting.viewmodel.SettingViewModel" />
+            type="com.yts.smartsetting.view.viewmodel.AppInfoViewModel" />
     </data>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/background"
-        android:clickable="true"
+        android:layout_height="wrap_content"
+        android:foreground="?android:selectableItemBackground"
+        android:onClick="@{()->model.saveApp()}"
         android:orientation="vertical">
-        <!--헤더-->
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -27,18 +27,18 @@
             android:orientation="horizontal">
 
             <android.support.v7.widget.AppCompatImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:onClick="@{()->model.close()}"
-                android:padding="16dp"
-                app:srcCompat="@drawable/ic_arrow_back_black_24dp" />
+                setImage="@{model.icon}"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_margin="16dp" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/app_name"
-                android:textSize="18sp" />
+                android:text="@{model.appName}" />
+
         </LinearLayout>
 
+        <View style="@style/lineView" />
     </LinearLayout>
 </layout>

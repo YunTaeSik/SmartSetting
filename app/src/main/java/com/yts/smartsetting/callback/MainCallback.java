@@ -1,7 +1,6 @@
 package com.yts.smartsetting.callback;
 
 public interface MainCallback {
-    void startEarPhone();
+    void start(String kind);
 
-    void startBlueTooth();
 }

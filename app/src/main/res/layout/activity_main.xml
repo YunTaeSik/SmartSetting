@@ -8,9 +8,11 @@
 
         <import type="android.view.View" />
 
+        <import type="com.yts.smartsetting.utill.Keys" />
+
         <variable
             name="model"
-            type="com.yts.smartsetting.viewmodel.MainViewModel" />
+            type="com.yts.smartsetting.view.viewmodel.MainViewModel" />
     </data>
 
     <LinearLayout
@@ -29,7 +31,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="16dp"
-                app:srcCompat="@drawable/ic_settings_black_24dp" />
+                app:srcCompat="@drawable/ic_settings_white_24dp" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -43,7 +45,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
-            android:onClick="@{()->model.startEarPhoneDialog()}"
+            android:onClick="@{()->model.start(Keys.EAR)}"
             app:cardBackgroundColor="@color/cardBackground"
             app:cardCornerRadius="2dp"
             app:cardElevation="2dp">
@@ -73,6 +75,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="2dp"
                         android:hint="@string/msg_earphone"
+                        setLaunchAppText="@{model.earName}"
                         android:textSize="11sp" />
                 </LinearLayout>
 
@@ -87,6 +90,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
+            android:onClick="@{()->model.start(Keys.BLUE_TOOTH)}"
             app:cardBackgroundColor="@color/cardBackground"
             app:cardCornerRadius="2dp"
             app:cardElevation="2dp">
@@ -116,13 +120,14 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="2dp"
                         android:hint="@string/msg_bluetooth"
+                        setLaunchAppText="@{model.blueToothName}"
                         android:textSize="11sp" />
                 </LinearLayout>
 
                 <android.support.v7.widget.AppCompatImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:srcCompat="@drawable/ic_bluetooth_black_24dp" />
+                    app:srcCompat="@drawable/ic_bluetooth_white_24dp" />
             </LinearLayout>
         </android.support.design.card.MaterialCardView>
 
