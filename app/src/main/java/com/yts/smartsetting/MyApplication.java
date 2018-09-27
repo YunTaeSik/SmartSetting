@@ -33,17 +33,6 @@ public class MyApplication extends MultiDexApplication {
                 .deleteRealmIfMigrationNeeded()
                 .build();
         Realm.setDefaultConfiguration(config);
-
-
-        FirebaseJobDispatcher dispatcher = new FirebaseJobDispatcher(new GooglePlayDriver(this));
-        Job myJob = dispatcher.newJobBuilder()
-                .setService(SmartSettingJobService.class) // the JobService that will be called
-                .setTag(SmartSettingJobService.class.getSimpleName())        // uniquely identifies the job
-                .setLifetime(Lifetime.FOREVER)
-                .setReplaceCurrent(true)
-                .setRetryStrategy(RetryStrategy.DEFAULT_EXPONENTIAL)
-                .build();
-        dispatcher.mustSchedule(myJob);
     }
 
     @Override
