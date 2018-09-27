@@ -9,6 +9,6 @@ import com.yts.smartsetting.utill.JobSchedulerStart;
 public class BootReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
-        JobSchedulerStart.start(context);
+      //  JobSchedulerStart.start(context);
     }
 }

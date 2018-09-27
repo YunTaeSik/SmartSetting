@@ -13,29 +13,32 @@ import com.firebase.jobdispatcher.JobService;
 import com.yts.smartsetting.receiver.ServiceReceiver;
 
 public class SmartSettingJobService extends JobService {
+    private String TAG = "SmartSettingJobService";
     private ServiceReceiver serviceReceiver;
 
     @Override
     public boolean onStartJob(JobParameters job) {
-        Log.d("NotificationJobService", "onStartJob");
-        System.out.print("NotificationJobService = onStartJob");
-        //     startService(new Intent(this, Service.class));
+        System.out.print(TAG + " = onStartJob");
         if (serviceReceiver == null) {
             serviceReceiver = new ServiceReceiver();
         }
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction(Intent.ACTION_HEADSET_PLUG);
-        getApplicationContext().registerReceiver(new ServiceReceiver(), intentFilter);
+        getApplicationContext().registerReceiver(serviceReceiver, intentFilter);
+    /*    try {
+            startService(new Intent(this, Service.class));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }*/
         return true;
     }
 
     @Override
     public boolean onStopJob(JobParameters job) {
-        Log.d("NotificationJobService", "onStopJob");
-        System.out.print("NotificationJobService = onStopJob");
+        System.out.print(TAG + " = onStopJob");
         try {
             if (serviceReceiver != null) {
-                getApplicationContext().unregisterReceiver(serviceReceiver);
+               // getApplicationContext().unregisterReceiver(serviceReceiver);
             }
         } catch (Exception e) {
             e.printStackTrace();
