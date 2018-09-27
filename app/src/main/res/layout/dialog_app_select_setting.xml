@@ -83,6 +83,7 @@
                 android:text="@string/select_app" />
 
             <TextView
+                setLaunchAppText="@{model.appName}"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:hint="@string/no_app_selected"

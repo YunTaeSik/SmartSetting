@@ -71,6 +71,7 @@ public class MainViewModel extends BaseViewModel {
     public IntentFilter getIntentFilter() {
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction(Keys.EDIT_EAR);
+        intentFilter.addAction(Keys.EDIT_BLUE_TOOTH);
         return intentFilter;
     }
 

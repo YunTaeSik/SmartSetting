@@ -1,7 +1,10 @@
 package com.yts.smartsetting.view.viewmodel;
 
 import android.arch.lifecycle.MutableLiveData;
+import android.content.BroadcastReceiver;
 import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.support.v7.widget.SwitchCompat;
 import android.view.View;
 
@@ -46,6 +49,37 @@ public class SettingViewModel extends BaseViewModel {
         if (settingCallback != null) {
             settingCallback.startFragment(AppSelectDialog.newInstance(mKind.getValue()));
         }
+    }
+
+    //브로드캐스트
+    private BroadcastReceiver broadcastReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            String action = intent.getAction();
+            if (action != null && mKind != null && mKind.getValue() != null) {
+                String kind = mKind.getValue();
+                if (action.equals(Keys.EDIT_EAR) && kind.equals(Keys.EAR)) {
+                    String name = SharedPrefsUtils.getStringPreference(context, Keys.EAR_NAME);
+                    appName.setValue(name);
+                } else if (action.equals(Keys.EDIT_BLUE_TOOTH) && kind.equals(Keys.BLUE_TOOTH)) {
+                    String name = SharedPrefsUtils.getStringPreference(context, Keys.BLUE_TOOTH_NAME);
+                    appName.setValue(name);
+                }
+
+            }
+
+        }
+    };
+
+    public BroadcastReceiver getBroadcastReceiver() {
+        return broadcastReceiver;
+    }
+
+    public IntentFilter getIntentFilter() {
+        IntentFilter intentFilter = new IntentFilter();
+        intentFilter.addAction(Keys.EDIT_EAR);
+        intentFilter.addAction(Keys.EDIT_BLUE_TOOTH);
+        return intentFilter;
     }
 
 

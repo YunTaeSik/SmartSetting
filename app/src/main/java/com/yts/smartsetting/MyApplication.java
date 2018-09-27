@@ -15,6 +15,7 @@ import com.firebase.jobdispatcher.Trigger;
 import com.yts.smartsetting.data.realm.Migration;
 import com.yts.smartsetting.receiver.ServiceReceiver;
 import com.yts.smartsetting.service.SmartSettingJobService;
+import com.yts.smartsetting.utill.JobSchedulerStart;
 
 import io.realm.Realm;
 import io.realm.RealmConfiguration;
@@ -24,7 +25,6 @@ public class MyApplication extends MultiDexApplication {
     @Override
     public void onCreate() {
         super.onCreate();
-
         Realm.init(this);
         RealmConfiguration config = new RealmConfiguration.Builder()
                 .name("TsSmartSetting.realm")
@@ -33,6 +33,8 @@ public class MyApplication extends MultiDexApplication {
                 .deleteRealmIfMigrationNeeded()
                 .build();
         Realm.setDefaultConfiguration(config);
+
+        JobSchedulerStart.start(this);
     }
 
     @Override

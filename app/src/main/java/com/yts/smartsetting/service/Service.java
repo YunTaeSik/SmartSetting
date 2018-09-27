@@ -30,7 +30,7 @@ public class Service extends android.app.Service {
     @Override
     public void onDestroy() {
         if (serviceReceiver != null) {
-            unregisterReceiver(new ServiceReceiver());
+            unregisterReceiver(serviceReceiver);
         }
         super.onDestroy();
     }

@@ -58,14 +58,26 @@ public class AppSelectSettingDialog extends DialogFragment implements SettingCal
         model.setKind(getActivity(), getArguments().getString(Keys.KIND));
         binding.setModel(model);
         binding.setLifecycleOwner(this);
+        if (getActivity() != null) {
+            getActivity().registerReceiver(model.getBroadcastReceiver(), model.getIntentFilter());
+        }
+    }
+
+    @Override
+    public void onDestroyView() {
+        if (getActivity() != null && model != null) {
+            getActivity().unregisterReceiver(model.getBroadcastReceiver());
+        }
+        super.onDestroyView();
     }
 
     @Override
     public void saveEnable(String kind, boolean enable) {
         if (kind.equals(Keys.EAR)) {
+            //  JobSchedulerStart.start(getActivity());
             SharedPrefsUtils.setBooleanPreference(getActivity(), Keys.EAR_ENABLE, enable);
-            JobSchedulerStart.start(getActivity());
         } else if (kind.equals(Keys.BLUE_TOOTH)) {
+            //JobSchedulerStart.start(getActivity());
             SharedPrefsUtils.setBooleanPreference(getActivity(), Keys.BLUE_TOOTH_ENABLE, enable);
         }
     }
