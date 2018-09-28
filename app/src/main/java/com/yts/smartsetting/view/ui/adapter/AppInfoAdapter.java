@@ -9,6 +9,8 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
+import android.widget.Filter;
+import android.widget.Filterable;
 
 import com.yts.smartsetting.R;
 import com.yts.smartsetting.callback.BaseCallback;
@@ -18,7 +20,7 @@ import com.yts.smartsetting.view.viewmodel.AppInfoViewModel;
 
 import java.util.List;
 
-public class AppInfoAdapter extends RecyclerView.Adapter {
+public class AppInfoAdapter extends RecyclerView.Adapter implements Filterable {
     private int EMPTY_TYPE = 0;
     private int APP_TYPE = 1;
 
@@ -73,6 +75,21 @@ public class AppInfoAdapter extends RecyclerView.Adapter {
             return mItemList.size();
         }
         return 0;
+    }
+
+    @Override
+    public Filter getFilter() {
+        return new Filter() {
+            @Override
+            protected FilterResults performFiltering(CharSequence charSequence) {
+                return null;
+            }
+
+            @Override
+            protected void publishResults(CharSequence charSequence, FilterResults filterResults) {
+
+            }
+        };
     }
 
     private class EmptyAppViewHolder extends RecyclerView.ViewHolder {

@@ -1,8 +1,6 @@
 package com.yts.smartsetting.view.ui.dialog;
 
 import android.arch.lifecycle.ViewModelProviders;
-import android.content.Intent;
-import android.content.IntentFilter;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -12,21 +10,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.firebase.jobdispatcher.Constraint;
-import com.firebase.jobdispatcher.FirebaseJobDispatcher;
-import com.firebase.jobdispatcher.GooglePlayDriver;
-import com.firebase.jobdispatcher.Job;
-import com.firebase.jobdispatcher.Lifetime;
-import com.firebase.jobdispatcher.RetryStrategy;
+
 import com.yts.smartsetting.BaseActivity;
 import com.yts.smartsetting.R;
 import com.yts.smartsetting.callback.BaseCallback;
 import com.yts.smartsetting.callback.SettingCallback;
 import com.yts.smartsetting.databinding.AppSelectSettingBinding;
-import com.yts.smartsetting.receiver.ServiceReceiver;
-import com.yts.smartsetting.service.SmartSettingJobService;
-import com.yts.smartsetting.utill.JobSchedulerStart;
 import com.yts.smartsetting.utill.Keys;
+import com.yts.smartsetting.utill.ServiceUtil;
 import com.yts.smartsetting.utill.SharedPrefsUtils;
 import com.yts.smartsetting.view.viewmodel.SettingViewModel;
 
@@ -74,12 +65,11 @@ public class AppSelectSettingDialog extends DialogFragment implements SettingCal
     @Override
     public void saveEnable(String kind, boolean enable) {
         if (kind.equals(Keys.EAR)) {
-            //  JobSchedulerStart.start(getActivity());
             SharedPrefsUtils.setBooleanPreference(getActivity(), Keys.EAR_ENABLE, enable);
         } else if (kind.equals(Keys.BLUE_TOOTH)) {
-            //JobSchedulerStart.start(getActivity());
             SharedPrefsUtils.setBooleanPreference(getActivity(), Keys.BLUE_TOOTH_ENABLE, enable);
         }
+        ServiceUtil.start(getActivity());
     }
 
     @Override

@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">"스마트설정"</string>
+    <string name="app_name">"스마트 설정"</string>
     <string name="setting">"설정"</string>
     <string name="use">"사용"</string>
     <string name="enabled">"사용 여부"</string>
 
     <string name="select_app">"앱 선택"</string>
+    <string name="app_in_use">"스마트 설정 사용중"</string>
+    <string name="app_content">"스마트 설정을 설정하시려면 터치하세요."</string>
 
     <string name="launch_the_app">"%s 앱을 실행합니다."</string>
 

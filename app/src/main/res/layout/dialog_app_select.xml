@@ -43,6 +43,7 @@
         </LinearLayout>
 
         <android.support.v7.widget.RecyclerView
+            android:id="@+id/list_item"
             setAppSelectAdapter="@{model.mItemList}"
             setKind="@{model.mKind}"
             android:layout_width="match_parent"

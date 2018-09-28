@@ -1,6 +1,7 @@
 package com.yts.smartsetting.view.ui.dialog;
 
 import android.arch.lifecycle.ViewModelProviders;
+import android.content.pm.PackageManager;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -40,9 +41,12 @@ public class AppSelectDialog extends DialogFragment {
         super.onViewCreated(view, savedInstanceState);
         model = ViewModelProviders.of(this).get(AppSelectViewModel.class);
         model.setBaseCallback((BaseCallback) getActivity());
+        model.setPackageManager(getContext().getPackageManager());
         model.setKind(getArguments().getString(Keys.KIND));
         model.getResolveInfoList(getActivity());
         binding.setModel(model);
         binding.setLifecycleOwner(this);
+     //   binding.li.setFilterText();
     }
 }
+

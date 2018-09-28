@@ -1,21 +1,16 @@
 package com.yts.smartsetting;
 
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
 import android.content.Context;
-import android.content.Intent;
-import android.content.IntentFilter;
+import android.os.Build;
 import android.support.multidex.MultiDex;
 import android.support.multidex.MultiDexApplication;
 
-import com.firebase.jobdispatcher.FirebaseJobDispatcher;
-import com.firebase.jobdispatcher.GooglePlayDriver;
-import com.firebase.jobdispatcher.Job;
-import com.firebase.jobdispatcher.Lifetime;
-import com.firebase.jobdispatcher.RetryStrategy;
-import com.firebase.jobdispatcher.Trigger;
+
 import com.yts.smartsetting.data.realm.Migration;
-import com.yts.smartsetting.receiver.ServiceReceiver;
-import com.yts.smartsetting.service.SmartSettingJobService;
-import com.yts.smartsetting.utill.JobSchedulerStart;
+
+import com.yts.smartsetting.utill.ServiceUtil;
 
 import io.realm.Realm;
 import io.realm.RealmConfiguration;
@@ -34,7 +29,19 @@ public class MyApplication extends MultiDexApplication {
                 .build();
         Realm.setDefaultConfiguration(config);
 
-        JobSchedulerStart.start(this);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            String channelId = getString(R.string.notification_channel_id);
+            CharSequence channelName = getString(R.string.notification_channel_name);
+            int importance = NotificationManager.IMPORTANCE_DEFAULT;
+            NotificationChannel channel = new NotificationChannel(channelId, channelName, importance);
+            channel.enableVibration(false);
+            channel.enableLights(false);
+            channel.setSound(null, null);
+            channel.setVibrationPattern(null);
+            NotificationManager notificationManager = getSystemService(NotificationManager.class);
+            notificationManager.createNotificationChannel(channel);
+        }
+        ServiceUtil.start(this);
     }
 
     @Override
