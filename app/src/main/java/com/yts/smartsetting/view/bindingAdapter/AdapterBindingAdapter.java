@@ -19,7 +19,8 @@ public class AdapterBindingAdapter {
             //  ((HomeListAdapter) adapter).setItemList(itemList);
         } else {
             LinearLayoutManager manager = new LinearLayoutManager(context);
-            AppInfoAdapter appInfoAdapter = new AppInfoAdapter(itemList, kind);
+            AppInfoAdapter appInfoAdapter = new AppInfoAdapter(context, itemList, kind);
+            appInfoAdapter.setHasStableIds(true);
             view.setLayoutManager(manager);
             view.setAdapter(appInfoAdapter);
         }

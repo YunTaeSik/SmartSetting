@@ -34,10 +34,15 @@
                 android:padding="16dp"
                 app:srcCompat="@drawable/ic_arrow_back_white_24dp" />
 
-            <TextView
+
+            <EditText
+                android:id="@+id/edit_search"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/select_app"
+                android:background="@null"
+                android:hint="@string/search"
+                android:textColor="@color/textColor"
+                android:textColorHint="@color/textColorHint"
                 android:textSize="18sp" />
 
         </LinearLayout>

@@ -56,7 +56,7 @@ public class MainViewModel extends BaseViewModel {
         public void onReceive(Context context, Intent intent) {
             String action = intent.getAction();
             if (action != null) {
-                if (action.equals(Keys.EDIT_EAR) || action.equals(Keys.BLUE_TOOTH)) {
+                if (action.equals(Keys.EDIT_EAR) || action.equals(Keys.EDIT_BLUE_TOOTH)) {
                     initData(context);
                 }
             }
