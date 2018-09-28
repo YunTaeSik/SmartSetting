@@ -10,6 +10,7 @@ import com.yts.smartsetting.BaseActivity;
 import com.yts.smartsetting.R;
 import com.yts.smartsetting.callback.MainCallback;
 import com.yts.smartsetting.databinding.MainBinding;
+import com.yts.smartsetting.utill.ServiceUtil;
 import com.yts.smartsetting.view.ui.dialog.AppSelectSettingDialog;
 import com.yts.smartsetting.utill.Keys;
 import com.yts.smartsetting.view.viewmodel.MainViewModel;
@@ -21,6 +22,7 @@ public class MainActivity extends BaseActivity implements MainCallback {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        ServiceUtil.start(this);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
         model = ViewModelProviders.of(this).get(MainViewModel.class);
         model.setMainCallback(this, this);

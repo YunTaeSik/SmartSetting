@@ -14,8 +14,14 @@ import com.yts.smartsetting.utill.Keys;
 import com.yts.smartsetting.utill.SharedPrefsUtils;
 
 public class ServiceReceiver extends BroadcastReceiver {
+    private boolean isFirst = true;
+
     @Override
     public void onReceive(Context context, Intent intent) {
+        if (isFirst) {
+            isFirst = false;
+            return;
+        }
         String action = intent.getAction();
         if (action.equals(Intent.ACTION_HEADSET_PLUG)) {
             boolean state = intent.getIntExtra("state", 0) == 1;
@@ -32,7 +38,7 @@ public class ServiceReceiver extends BroadcastReceiver {
                     }
                 }
             }
-        } else if ( action.equals(BluetoothHeadset.ACTION_CONNECTION_STATE_CHANGED)) {
+        } else if (action.equals(BluetoothHeadset.ACTION_CONNECTION_STATE_CHANGED)) {
             final int state = intent.getIntExtra(BluetoothHeadset.EXTRA_STATE, -1);
             if (state == BluetoothHeadset.STATE_AUDIO_CONNECTED) {
                 boolean enable = SharedPrefsUtils.getBooleanPreference(context, Keys.BLUE_TOOTH_ENABLE);

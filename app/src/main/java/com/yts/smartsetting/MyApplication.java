@@ -41,7 +41,6 @@ public class MyApplication extends MultiDexApplication {
             NotificationManager notificationManager = getSystemService(NotificationManager.class);
             notificationManager.createNotificationChannel(channel);
         }
-        ServiceUtil.start(this);
     }
 
     @Override
