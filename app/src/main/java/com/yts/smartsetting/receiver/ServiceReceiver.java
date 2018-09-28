@@ -32,7 +32,7 @@ public class ServiceReceiver extends BroadcastReceiver {
                     }
                 }
             }
-        } else if (/*action.equals(BluetoothDevice.ACTION_ACL_CONNECTED) ||*/ action.equals(BluetoothHeadset.ACTION_CONNECTION_STATE_CHANGED)) {
+        } else if ( action.equals(BluetoothHeadset.ACTION_CONNECTION_STATE_CHANGED)) {
             final int state = intent.getIntExtra(BluetoothHeadset.EXTRA_STATE, -1);
             if (state == BluetoothHeadset.STATE_AUDIO_CONNECTED) {
                 boolean enable = SharedPrefsUtils.getBooleanPreference(context, Keys.BLUE_TOOTH_ENABLE);
