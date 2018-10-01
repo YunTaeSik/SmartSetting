@@ -37,11 +37,8 @@ import io.reactivex.disposables.CompositeDisposable;
 
 public class BaseActivity extends AppCompatActivity implements BaseCallback {
     private BaseViewModel model;
-
     public InputMethodManager inputMethodManager;
-
     public CompositeDisposable compositeDisposable;
-
     //backpress
     private static final int TIME_INTERVAL = 2000; // # milliseconds, desired time passed between two back presses.
     private long mBackPressed;
@@ -86,6 +83,7 @@ public class BaseActivity extends AppCompatActivity implements BaseCallback {
             mBackPressed = System.currentTimeMillis();
         }
     }
+
 
     /**
      * 다이얼로그 시작
@@ -137,6 +135,17 @@ public class BaseActivity extends AppCompatActivity implements BaseCallback {
     }
 
     @Override
+    public void toast(String text) {
+        ToastMake.make(this, text);
+    }
+
+    @Override
+    public void toast(int textId) {
+        ToastMake.make(this, textId);
+    }
+
+
+    @Override
     public void save(String kind, ResolveInfo resolveInfo) {
         if (resolveInfo != null) {
             if (kind.equals(Keys.EAR)) {
@@ -153,6 +162,12 @@ public class BaseActivity extends AppCompatActivity implements BaseCallback {
                 SendBroadcast.blueToothEdit(this);
             }
         }
+    }
+
+    @Override
+    public void save(Location location) {
+
+
     }
 
     @Override

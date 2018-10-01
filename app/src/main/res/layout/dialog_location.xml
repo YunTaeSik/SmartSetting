@@ -50,6 +50,7 @@
                 android:layout_gravity="center_vertical"
                 android:foreground="?android:selectableItemBackground"
                 android:gravity="center_vertical"
+                android:onClick="@{()->model.saveLocation()}"
                 android:padding="16dp"
                 android:text="@string/save"
                 android:textSize="14sp"
@@ -147,11 +148,13 @@
                         android:text="@string/bluetooth" />
 
                     <ToggleButton
+                        android:id="@+id/toggle_arrive_bluetooth"
                         setCheck="@{model.location.arriveBlueTooth}"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="16dp"
                         android:layout_marginRight="16dp"
+                        android:onClick="@{(v)->model.toggle(v)}"
                         android:textOff="@string/off"
                         android:textOn="@string/on" />
 
@@ -172,11 +175,13 @@
                         android:text="@string/wifi" />
 
                     <ToggleButton
+                        android:id="@+id/toggle_arrive_wifi"
                         setCheck="@{model.location.arriveWifi}"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="16dp"
                         android:layout_marginRight="16dp"
+                        android:onClick="@{(v)->model.toggle(v)}"
                         android:textOff="@string/off"
                         android:textOn="@string/on" />
                 </LinearLayout>
@@ -207,11 +212,13 @@
                         android:text="@string/bluetooth" />
 
                     <ToggleButton
+                        android:id="@+id/toggle_leave_bluetooth"
                         setCheck="@{model.location.leaveBlueTooth}"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="16dp"
                         android:layout_marginRight="16dp"
+                        android:onClick="@{(v)->model.toggle(v)}"
                         android:textOff="@string/off"
                         android:textOn="@string/on" />
 
@@ -232,11 +239,13 @@
                         android:text="@string/wifi" />
 
                     <ToggleButton
+                        android:id="@+id/toggle_leave_wifi"
                         setCheck="@{model.location.leaveWifi}"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="16dp"
                         android:layout_marginRight="16dp"
+                        android:onClick="@{(v)->model.toggle(v)}"
                         android:textOff="@string/off"
                         android:textOn="@string/on" />
                 </LinearLayout>

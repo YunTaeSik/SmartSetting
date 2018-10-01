@@ -143,4 +143,8 @@ public class Location extends RealmObject implements Parcelable {
             return new Location[size];
         }
     };
+
+    public boolean isValidity() {
+        return getName() != null && getName().length() > 0 && getAddress() != null && getAddress().length() > 0 && getLatitude() != null && getLatitude().length() > 0 && getLongitude() != null && getLongitude().length() > 0;
+    }
 }
