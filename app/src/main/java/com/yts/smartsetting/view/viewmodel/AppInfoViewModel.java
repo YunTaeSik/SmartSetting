@@ -5,15 +5,16 @@ import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.graphics.drawable.Drawable;
 
+import com.yts.smartsetting.data.TSLiveData;
 import com.yts.smartsetting.utill.SharedPrefsUtils;
 
 public class AppInfoViewModel extends BaseViewModel {
     private ResolveInfo resolveInfo;
 
     private String kind;
-    public MutableLiveData<String> appPackageName = new MutableLiveData<>();
-    public MutableLiveData<String> appName = new MutableLiveData<>();
-    public MutableLiveData<Drawable> icon = new MutableLiveData<>();
+    public TSLiveData<String> appPackageName = new TSLiveData<>();
+    public TSLiveData<String> appName = new TSLiveData<>();
+    public TSLiveData<Drawable> icon = new TSLiveData<>();
 
     public AppInfoViewModel() {
 
@@ -27,7 +28,6 @@ public class AppInfoViewModel extends BaseViewModel {
         this.resolveInfo = resolveInfo;
         appName.setValue(resolveInfo.activityInfo.loadLabel(packageManager).toString());
         icon.setValue(resolveInfo.activityInfo.loadIcon(packageManager));
-        // resolveInfo.activityInfo.packageName;
     }
 
     public void saveApp() {
@@ -35,6 +35,5 @@ public class AppInfoViewModel extends BaseViewModel {
             baseCallback.save(kind, resolveInfo);
             close();
         }
-        //    SharedPrefsUtils.setStringPreference()
     }
 }

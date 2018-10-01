@@ -8,17 +8,18 @@ import android.content.IntentFilter;
 
 import com.yts.smartsetting.callback.BaseCallback;
 import com.yts.smartsetting.callback.MainCallback;
+import com.yts.smartsetting.data.TSLiveData;
 import com.yts.smartsetting.utill.Keys;
 import com.yts.smartsetting.utill.SharedPrefsUtils;
 
 public class MainViewModel extends BaseViewModel {
     private MainCallback mainCallback;
 
-    public MutableLiveData<String> earName = new MutableLiveData<>();
-    public MutableLiveData<String> earPackageName = new MutableLiveData<>();
+    public TSLiveData<String> earName = new TSLiveData<>();
+    public TSLiveData<String> earPackageName = new TSLiveData<>();
 
-    public MutableLiveData<String> blueToothName = new MutableLiveData<>();
-    public MutableLiveData<String> blueToothPackageName = new MutableLiveData<>();
+    public TSLiveData<String> blueToothName = new TSLiveData<>();
+    public TSLiveData<String> blueToothPackageName = new TSLiveData<>();
 
     public void setMainCallback(BaseCallback baseCallback, MainCallback mainCallback) {
         this.baseCallback = baseCallback;

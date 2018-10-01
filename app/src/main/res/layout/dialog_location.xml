@@ -99,13 +99,13 @@
                     android:textSize="14sp" />
 
                 <android.support.v7.widget.AppCompatTextView
+                    setVisible="@{model.isSelectLocation}"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="end"
                     android:singleLine="true"
                     android:text="@{model.location.address}"
                     android:textSize="12sp"
-                    android:visibility="@{model.isSelectLocation?View.VISIBLE:View.GONE}"
                     tools:visibility="gone" />
             </LinearLayout>
 

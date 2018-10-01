@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 
+import com.yts.smartsetting.data.TSLiveData;
 import com.yts.smartsetting.utill.Keys;
 
 import java.util.ArrayList;
@@ -14,8 +15,8 @@ import java.util.List;
 public class AppSelectViewModel extends BaseViewModel {
     private PackageManager packageManager;
 
-    public MutableLiveData<String> mKind = new MutableLiveData<>();
-    public MutableLiveData<List<Object>> mItemList = new MutableLiveData<>();
+    public TSLiveData<String> mKind = new TSLiveData<>();
+    public TSLiveData<List<Object>> mItemList = new TSLiveData<>();
 
     public void setPackageManager(PackageManager packageManager) {
         this.packageManager = packageManager;

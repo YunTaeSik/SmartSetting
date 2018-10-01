@@ -9,16 +9,17 @@ import android.support.v7.widget.SwitchCompat;
 import android.view.View;
 
 import com.yts.smartsetting.callback.SettingCallback;
+import com.yts.smartsetting.data.TSLiveData;
 import com.yts.smartsetting.utill.Keys;
 import com.yts.smartsetting.utill.SharedPrefsUtils;
 import com.yts.smartsetting.view.ui.dialog.AppSelectDialog;
 
 public class SettingViewModel extends BaseViewModel {
     public SettingCallback settingCallback;
-    private MutableLiveData<String> mKind = new MutableLiveData<>();
+    private TSLiveData<String> mKind = new TSLiveData<>();
 
-    public MutableLiveData<Boolean> isEnable = new MutableLiveData<>();
-    public MutableLiveData<String> appName = new MutableLiveData<>();
+    public TSLiveData<Boolean> isEnable = new TSLiveData<>(false);
+    public TSLiveData<String> appName = new TSLiveData<>();
 
     public void setSettingCallback(SettingCallback settingCallback) {
         this.settingCallback = settingCallback;
