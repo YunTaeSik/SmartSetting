@@ -25,6 +25,10 @@ public class LocationViewModel extends BaseViewModel {
         }
     }
 
+    private void save() {
+
+    }
+
 
     private BroadcastReceiver broadcastReceiver = new BroadcastReceiver() {
         @Override

@@ -8,6 +8,10 @@
     <string name="save">"Save"</string>
     <string name="location">"Location"</string>
     <string name="basics">"Basics"</string>
+    <string name="bluetooth">"Bluetooth"</string>
+    <string name="wifi">"Wi-Fi"</string>
+    <string name="on">"ON"</string>
+    <string name="off">"OFF"</string>
 
     <string name="notification_channel_id">"notification_ts_channel_id"</string>
     <string name="notification_channel_name">"notification_ts_channel_name"</string>
@@ -25,6 +29,10 @@
     <string name="connect_earphone">"If I connect my earphone,"</string>
     <string name="connect_bluetooth">"If I connect my bluetooth,"</string>
     <string name="arrive_location">"When we arrived at the location"</string>
+
+    <string name="according_to_location">"According to location"</string>
+    <string name="when_i_arrived">"When I arrived"</string>
+    <string name="when_you_go_out">"when you go out"</string>
 
 
     <!--error-->

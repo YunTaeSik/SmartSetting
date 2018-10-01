@@ -58,61 +58,192 @@
 
         </LinearLayout>
 
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="16dp"
-            android:text="@string/basics"
-            android:textColor="@color/textColorHint"
-            android:textSize="12sp" />
-
-        <LinearLayout
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:onClick="@{()->model.startSelectLocation()}"
-            android:padding="16dp">
-
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/location"
-                android:textSize="14sp"
-                android:textStyle="bold" />
+            android:layout_height="match_parent">
 
             <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="end"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:orientation="vertical">
 
-                <android.support.v7.widget.AppCompatTextView
-                    android:layout_width="match_parent"
+                <TextView
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:gravity="end"
-                    android:hint="@string/hint_location"
-                    android:singleLine="true"
-                    android:text="@{model.location.name}"
-                    android:textSize="14sp" />
+                    android:layout_margin="16dp"
+                    android:text="@string/basics"
+                    android:textColor="@color/textColorHint"
+                    android:textSize="12sp" />
 
-                <android.support.v7.widget.AppCompatTextView
-                    setVisible="@{model.isSelectLocation}"
+                <!--위치-->
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="end"
-                    android:singleLine="true"
-                    android:text="@{model.location.address}"
-                    android:textSize="12sp"
-                    tools:visibility="gone" />
+                    android:foreground="?android:selectableItemBackground"
+                    android:gravity="center"
+                    android:onClick="@{()->model.startSelectLocation()}"
+                    android:padding="16dp">
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/location"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="end"
+                        android:orientation="vertical">
+
+                        <android.support.v7.widget.AppCompatTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="end"
+                            android:hint="@string/hint_location"
+                            android:singleLine="true"
+                            android:text="@{model.location.name}"
+                            android:textSize="14sp" />
+
+                        <android.support.v7.widget.AppCompatTextView
+                            setVisible="@{model.isSelectLocation}"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="end"
+                            android:singleLine="true"
+                            android:text="@{model.location.address}"
+                            android:textSize="12sp"
+                            tools:visibility="gone" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <View style="@style/lineView" />
+
+                <!--도착했을때-->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="16dp"
+                    android:text="@string/when_i_arrived"
+                    android:textColor="@color/textColorHint"
+                    android:textSize="12sp" />
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:padding="16dp"
+                        android:text="@string/bluetooth" />
+
+                    <ToggleButton
+                        setCheck="@{model.location.arriveBlueTooth}"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginRight="16dp"
+                        android:textOff="@string/off"
+                        android:textOn="@string/on" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:padding="16dp"
+                        android:text="@string/wifi" />
+
+                    <ToggleButton
+                        setCheck="@{model.location.arriveWifi}"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginRight="16dp"
+                        android:textOff="@string/off"
+                        android:textOn="@string/on" />
+                </LinearLayout>
+
+                <View style="@style/lineView" />
+
+                <!--나갔을때-->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="16dp"
+                    android:text="@string/when_you_go_out"
+                    android:textColor="@color/textColorHint"
+                    android:textSize="12sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:padding="16dp"
+                        android:text="@string/bluetooth" />
+
+                    <ToggleButton
+                        setCheck="@{model.location.leaveBlueTooth}"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginRight="16dp"
+                        android:textOff="@string/off"
+                        android:textOn="@string/on" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:padding="16dp"
+                        android:text="@string/wifi" />
+
+                    <ToggleButton
+                        setCheck="@{model.location.leaveWifi}"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginRight="16dp"
+                        android:textOff="@string/off"
+                        android:textOn="@string/on" />
+                </LinearLayout>
+
+                <View style="@style/lineView" />
             </LinearLayout>
-
-
-        </LinearLayout>
-
-        <View style="@style/lineView" />
+        </ScrollView>
 
 
     </LinearLayout>

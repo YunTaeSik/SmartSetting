@@ -14,6 +14,10 @@ public class Location extends RealmObject implements Parcelable {
     private String address;
     private String latitude;
     private String longitude;
+    private boolean arriveBlueTooth;
+    private boolean arriveWifi;
+    private boolean leaveBlueTooth;
+    private boolean leaveWifi;
 
     public String getDate() {
         return date;
@@ -55,18 +59,36 @@ public class Location extends RealmObject implements Parcelable {
         this.longitude = longitude;
     }
 
-    @Override
-    public int describeContents() {
-        return 0;
+    public boolean isArriveBlueTooth() {
+        return arriveBlueTooth;
     }
 
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(this.date);
-        dest.writeString(this.name);
-        dest.writeString(this.address);
-        dest.writeString(this.latitude);
-        dest.writeString(this.longitude);
+    public void setArriveBlueTooth(boolean arriveBlueTooth) {
+        this.arriveBlueTooth = arriveBlueTooth;
+    }
+
+    public boolean isArriveWifi() {
+        return arriveWifi;
+    }
+
+    public void setArriveWifi(boolean arriveWifi) {
+        this.arriveWifi = arriveWifi;
+    }
+
+    public boolean isLeaveBlueTooth() {
+        return leaveBlueTooth;
+    }
+
+    public void setLeaveBlueTooth(boolean leaveBlueTooth) {
+        this.leaveBlueTooth = leaveBlueTooth;
+    }
+
+    public boolean isLeaveWifi() {
+        return leaveWifi;
+    }
+
+    public void setLeaveWifi(boolean leaveWifi) {
+        this.leaveWifi = leaveWifi;
     }
 
     public Location() {
@@ -80,15 +102,37 @@ public class Location extends RealmObject implements Parcelable {
         setLongitude(String.valueOf(placeData.getLatLng().longitude));
     }
 
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(this.date);
+        dest.writeString(this.name);
+        dest.writeString(this.address);
+        dest.writeString(this.latitude);
+        dest.writeString(this.longitude);
+        dest.writeByte(this.arriveBlueTooth ? (byte) 1 : (byte) 0);
+        dest.writeByte(this.arriveWifi ? (byte) 1 : (byte) 0);
+        dest.writeByte(this.leaveBlueTooth ? (byte) 1 : (byte) 0);
+        dest.writeByte(this.leaveWifi ? (byte) 1 : (byte) 0);
+    }
+
     protected Location(Parcel in) {
         this.date = in.readString();
         this.name = in.readString();
         this.address = in.readString();
         this.latitude = in.readString();
         this.longitude = in.readString();
+        this.arriveBlueTooth = in.readByte() != 0;
+        this.arriveWifi = in.readByte() != 0;
+        this.leaveBlueTooth = in.readByte() != 0;
+        this.leaveWifi = in.readByte() != 0;
     }
 
-    public static final Parcelable.Creator<Location> CREATOR = new Parcelable.Creator<Location>() {
+    public static final Creator<Location> CREATOR = new Creator<Location>() {
         @Override
         public Location createFromParcel(Parcel source) {
             return new Location(source);

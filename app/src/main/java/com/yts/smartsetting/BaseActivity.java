@@ -175,7 +175,7 @@ public class BaseActivity extends AppCompatActivity implements BaseCallback {
     @Override
     public void startLocationDialog(Location location) {
         LocationDialog dialog = LocationDialog.newInstance(location);
-        startFragmentDialog(dialog, android.R.transition.slide_right);
+        addFragmentDialog(dialog, android.R.transition.slide_bottom);
     }
 
     @Override
