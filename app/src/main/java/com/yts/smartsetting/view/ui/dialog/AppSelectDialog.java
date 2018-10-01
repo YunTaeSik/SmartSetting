@@ -50,8 +50,6 @@ public class AppSelectDialog extends DialogFragment {
         binding.setModel(model);
         binding.setLifecycleOwner(this);
         search();
-        //  ((AppInfoAdapter)binding.listItem.getAdapter()).getFilter().filter();
-        //   binding.li.setFilterText();
     }
 
     private void search() {

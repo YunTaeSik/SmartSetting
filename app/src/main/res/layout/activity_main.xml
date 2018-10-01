@@ -71,11 +71,11 @@
                         android:text="@string/connect_earphone" />
 
                     <TextView
+                        setLaunchAppText="@{model.earName}"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="2dp"
                         android:hint="@string/msg_earphone"
-                        setLaunchAppText="@{model.earName}"
                         android:textSize="11sp" />
                 </LinearLayout>
 
@@ -116,11 +116,11 @@
                         android:text="@string/connect_bluetooth" />
 
                     <TextView
+                        setLaunchAppText="@{model.blueToothName}"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="2dp"
                         android:hint="@string/msg_bluetooth"
-                        setLaunchAppText="@{model.blueToothName}"
                         android:textSize="11sp" />
                 </LinearLayout>
 
@@ -128,6 +128,51 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     app:srcCompat="@drawable/ic_bluetooth_white_24dp" />
+            </LinearLayout>
+        </android.support.design.card.MaterialCardView>
+        <!--위치-->
+        <android.support.design.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:onClick="@{()->model.startLocationListDialog()}"
+            app:cardBackgroundColor="@color/cardBackground"
+            app:cardCornerRadius="2dp"
+            app:cardElevation="2dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:foreground="?android:selectableItemBackground"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="16dp">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="2dp"
+                        android:text="@string/arrive_location" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:hint="@string/msg_location"
+                        android:textSize="11sp" />
+                </LinearLayout>
+
+                <android.support.v7.widget.AppCompatImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:tint="@color/tintColor"
+                    app:srcCompat="@drawable/ic_location_on_black_24dp" />
             </LinearLayout>
         </android.support.design.card.MaterialCardView>
 

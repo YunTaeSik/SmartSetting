@@ -5,8 +5,12 @@
     <string name="use">"사용"</string>
     <string name="enabled">"사용 여부"</string>
     <string name="search">"검색"</string>
+    <string name="save">"저장"</string>
+    <string name="location">"위치"</string>
+    <string name="basics">"기본"</string>
 
     <string name="select_app">"앱 선택"</string>
+    <string name="location_setting">"위치 설정"</string>
     <string name="app_in_use">"스마트 설정 사용중"</string>
     <string name="app_content">"스마트 설정을 설정하시려면 터치하세요."</string>
 
@@ -18,9 +22,14 @@
 
     <string name="connect_earphone">"이어폰을 연결하면"</string>
     <string name="connect_bluetooth">"블루트스를 연결하면"</string>
+    <string name="arrive_location">"위치에 도착했을 때"</string>
+
+    <!--hint-->
+    <string name="hint_location">"위치를 선택해주세요."</string>
 
     <!--guide-->
     <string name="msg_quit">""뒤로" 버튼을 한번 더 누르시면 종료됩니다."</string>
     <string name="msg_earphone">"자동으로 실행할 앱을 선택해주세요."</string>
     <string name="msg_bluetooth">"자동으로 실행할 앱을 선택해주세요."</string>
+    <string name="msg_location">"자동 변경할 설정을 선택하세요."</string>
 </resources>

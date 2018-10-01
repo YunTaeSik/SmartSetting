@@ -4,11 +4,15 @@
     <string name="use">"Use"</string>
     <string name="enabled">"Enabled"</string>
     <string name="search">"Search"</string>
+    <string name="save">"Save"</string>
+    <string name="location">"Location"</string>
+    <string name="basics">"Basics"</string>
 
     <string name="notification_channel_id">"notification_ts_channel_id"</string>
     <string name="notification_channel_name">"notification_ts_channel_name"</string>
 
     <string name="select_app">"Select App"</string>
+    <string name="location_setting">"Location Settings"</string>
     <string name="app_in_use">"Smart Setting in use"</string>
     <string name="app_content">"Touch to set smart settings."</string>
 
@@ -19,11 +23,17 @@
 
     <string name="connect_earphone">"If I connect my earphone,"</string>
     <string name="connect_bluetooth">"If I connect my bluetooth,"</string>
+    <string name="arrive_location">"When we arrived at the location"</string>
+
+
+    <!--hint-->
+    <string name="hint_location">"Please select a location."</string>
 
 
     <!--guide-->
     <string name="msg_quit">"Pressing the "back" button ends."</string>
     <string name="msg_earphone">"Please select an app to run automatically"</string>
     <string name="msg_bluetooth">"Please select an app to run automatically"</string>
+    <string name="msg_location">"Select the settings you want to change automatically."</string>
 
 </resources>

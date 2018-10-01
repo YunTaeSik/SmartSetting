@@ -5,6 +5,7 @@ public class Keys {
 
     public static final String KIND = "kind";
     public static final String EAR = "ear";
+    public static final String LOCATION = "location";
 
     public static final String BLUE_TOOTH = "blueTooth";
 

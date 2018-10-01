@@ -13,6 +13,7 @@ import com.yts.smartsetting.databinding.MainBinding;
 import com.yts.smartsetting.utill.ServiceUtil;
 import com.yts.smartsetting.view.ui.dialog.AppSelectSettingDialog;
 import com.yts.smartsetting.utill.Keys;
+import com.yts.smartsetting.view.ui.dialog.LocationListDialog;
 import com.yts.smartsetting.view.viewmodel.MainViewModel;
 
 public class MainActivity extends BaseActivity implements MainCallback {

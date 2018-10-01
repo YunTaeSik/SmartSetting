@@ -1,5 +1,6 @@
 package com.yts.smartsetting;
 
+import android.arch.lifecycle.ViewModelProviders;
 import android.content.pm.ResolveInfo;
 import android.os.Build;
 import android.os.Bundle;
@@ -12,15 +13,22 @@ import android.transition.TransitionInflater;
 import android.view.inputmethod.InputMethodManager;
 
 import com.yts.smartsetting.callback.BaseCallback;
+import com.yts.smartsetting.data.model.Location;
 import com.yts.smartsetting.utill.Keys;
 import com.yts.smartsetting.utill.SendBroadcast;
 import com.yts.smartsetting.utill.SharedPrefsUtils;
 import com.yts.smartsetting.utill.ToastMake;
+import com.yts.smartsetting.view.ui.dialog.LocationDialog;
+import com.yts.smartsetting.view.ui.dialog.LocationListDialog;
+import com.yts.smartsetting.view.viewmodel.BaseViewModel;
+import com.yts.smartsetting.view.viewmodel.MainViewModel;
 
 import io.reactivex.disposables.CompositeDisposable;
 
 
 public class BaseActivity extends AppCompatActivity implements BaseCallback {
+    private BaseViewModel model;
+
     public InputMethodManager inputMethodManager;
 
     public CompositeDisposable compositeDisposable;
@@ -32,6 +40,7 @@ public class BaseActivity extends AppCompatActivity implements BaseCallback {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        model = ViewModelProviders.of(this).get(BaseViewModel.class);
         inputMethodManager = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
         compositeDisposable = new CompositeDisposable();
     }
@@ -135,5 +144,17 @@ public class BaseActivity extends AppCompatActivity implements BaseCallback {
                 SendBroadcast.buleToothEdit(this);
             }
         }
+    }
+
+    @Override
+    public void startLocationListDialog() {
+        LocationListDialog dialog = LocationListDialog.newInstance();
+        startFragmentDialog(dialog, android.R.transition.slide_right);
+    }
+
+    @Override
+    public void startLocationDialog(Location location) {
+        LocationDialog dialog = LocationDialog.newInstance(location);
+        startFragmentDialog(dialog, android.R.transition.slide_right);
     }
 }
