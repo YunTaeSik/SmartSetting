@@ -63,16 +63,6 @@ public class AppSelectSettingDialog extends DialogFragment implements SettingCal
     }
 
     @Override
-    public void saveEnable(String kind, boolean enable) {
-        if (kind.equals(Keys.EAR)) {
-            SharedPrefsUtils.setBooleanPreference(getActivity(), Keys.EAR_ENABLE, enable);
-        } else if (kind.equals(Keys.BLUE_TOOTH)) {
-            SharedPrefsUtils.setBooleanPreference(getActivity(), Keys.BLUE_TOOTH_ENABLE, enable);
-        }
-        ServiceUtil.start(getActivity());
-    }
-
-    @Override
     public void startFragment(DialogFragment fragment) {
         if (getActivity() instanceof BaseActivity) {
             ((BaseActivity) getActivity()).addFragmentDialog(fragment, android.R.transition.slide_right);

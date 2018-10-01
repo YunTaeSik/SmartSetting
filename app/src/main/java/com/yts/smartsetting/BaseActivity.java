@@ -22,6 +22,7 @@ import com.yts.smartsetting.utill.Keys;
 import com.yts.smartsetting.utill.PermissionCheck;
 import com.yts.smartsetting.utill.RequestCode;
 import com.yts.smartsetting.utill.SendBroadcast;
+import com.yts.smartsetting.utill.ServiceUtil;
 import com.yts.smartsetting.utill.SharedPrefsUtils;
 import com.yts.smartsetting.utill.ShowIntent;
 import com.yts.smartsetting.utill.ToastMake;
@@ -168,6 +169,18 @@ public class BaseActivity extends AppCompatActivity implements BaseCallback {
     public void save(Location location) {
 
 
+    }
+
+    @Override
+    public void saveEnable(String kind, boolean enable) {
+        if (kind.equals(Keys.EAR)) {
+            SharedPrefsUtils.setBooleanPreference(this, Keys.EAR_ENABLE, enable);
+        } else if (kind.equals(Keys.BLUE_TOOTH)) {
+            SharedPrefsUtils.setBooleanPreference(this, Keys.BLUE_TOOTH_ENABLE, enable);
+        } else if (kind.equals(Keys.LOCATION)) {
+            SharedPrefsUtils.setBooleanPreference(this, Keys.LOCATION_ENABLE, enable);
+        }
+        ServiceUtil.start(this);
     }
 
     @Override

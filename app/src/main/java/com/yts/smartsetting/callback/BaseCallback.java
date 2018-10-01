@@ -15,6 +15,8 @@ public interface BaseCallback {
 
     void save(Location location);
 
+    void saveEnable(String kind, boolean enable);
+
     void startLocationListDialog();
 
     void startLocationDialog(Location location);

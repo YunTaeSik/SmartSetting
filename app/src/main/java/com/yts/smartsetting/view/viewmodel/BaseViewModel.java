@@ -43,6 +43,19 @@ public class BaseViewModel extends ViewModel {
         }
     }
 
+    public void save(Location location) {
+        if (clickTimeCheck()) {
+            return;
+        }
+        RealmService.saveLocation(location);
+    }
+
+    public void saveEnable(String kind, boolean enable) {
+        if (baseCallback != null) {
+            baseCallback.saveEnable(kind, enable);
+        }
+    }
+
     public void startLocationListDialog() {
         if (baseCallback != null) {
             baseCallback.startLocationListDialog();
@@ -67,10 +80,5 @@ public class BaseViewModel extends ViewModel {
         }
     }
 
-    public void save(Location location) {
-        if (clickTimeCheck()) {
-            return;
-        }
-        RealmService.saveLocation(location);
-    }
+
 }

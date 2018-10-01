@@ -19,6 +19,8 @@ public class Keys {
     public static final String BLUE_TOOTH_PACKAGENAME = "blueToothPackageName";
     public static final String BLUE_TOOTH_NAME = "blueToothName";
 
+    public static final String LOCATION_ENABLE = "locationEnable";
+
     //브로드 캐스트 리시버
     public static final String EDIT_EAR = "editEar";
     public static final String EDIT_BLUE_TOOTH = "editBlueTooth";

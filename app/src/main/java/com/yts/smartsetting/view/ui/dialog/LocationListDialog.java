@@ -16,7 +16,7 @@ import com.yts.smartsetting.callback.BaseCallback;
 import com.yts.smartsetting.databinding.LocationListBinding;
 import com.yts.smartsetting.view.viewmodel.LocationListViewModel;
 
-public class LocationListDialog extends DialogFragment  {
+public class LocationListDialog extends DialogFragment {
     private LocationListBinding binding;
     private LocationListViewModel model;
 
@@ -39,6 +39,7 @@ public class LocationListDialog extends DialogFragment  {
         super.onViewCreated(view, savedInstanceState);
         model = ViewModelProviders.of(this).get(LocationListViewModel.class);
         model.setBaseCallback((BaseCallback) getActivity());
+        model.initData(getActivity());
         binding.setModel(model);
         binding.setLifecycleOwner(this);
     }

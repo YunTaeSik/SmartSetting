@@ -40,8 +40,8 @@ public class SettingViewModel extends BaseViewModel {
         if (view instanceof SwitchCompat) {
             SwitchCompat switchCompat = (SwitchCompat) view;
             boolean isEnable = switchCompat.isChecked();
-            if (settingCallback != null && mKind != null && mKind.getValue() != null) {
-                settingCallback.saveEnable(mKind.getValue(), isEnable);
+            if (baseCallback != null && mKind != null && mKind.getValue() != null) {
+                baseCallback.saveEnable(mKind.getValue(), isEnable);
             }
         }
     }
