@@ -1,6 +1,7 @@
 package com.yts.smartsetting;
 
 import android.arch.lifecycle.ViewModelProviders;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.ResolveInfo;
 import android.os.Build;
@@ -18,6 +19,7 @@ import com.google.android.gms.location.places.ui.PlacePicker;
 import com.gun0912.tedpermission.PermissionListener;
 import com.yts.smartsetting.callback.BaseCallback;
 import com.yts.smartsetting.data.model.Location;
+import com.yts.smartsetting.data.realm.RealmService;
 import com.yts.smartsetting.utill.Keys;
 import com.yts.smartsetting.utill.PermissionCheck;
 import com.yts.smartsetting.utill.RequestCode;
@@ -26,6 +28,7 @@ import com.yts.smartsetting.utill.ServiceUtil;
 import com.yts.smartsetting.utill.SharedPrefsUtils;
 import com.yts.smartsetting.utill.ShowIntent;
 import com.yts.smartsetting.utill.ToastMake;
+import com.yts.smartsetting.view.ui.dialog.AlertDialogCreate;
 import com.yts.smartsetting.view.ui.dialog.LocationDialog;
 import com.yts.smartsetting.view.ui.dialog.LocationListDialog;
 import com.yts.smartsetting.view.viewmodel.BaseViewModel;
@@ -167,7 +170,18 @@ public class BaseActivity extends AppCompatActivity implements BaseCallback {
 
     @Override
     public void save(Location location) {
-        SendBroadcast.addLocation(this);
+        SendBroadcast.editLocation(this);
+    }
+
+    @Override
+    public void deleteLocation(final Location location) {
+        AlertDialogCreate.getInstance(this).deleteLocation(new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                RealmService.deleteLocation(location);
+                SendBroadcast.editLocation(BaseActivity.this);
+            }
+        });
     }
 
     @Override

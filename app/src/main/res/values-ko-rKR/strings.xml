@@ -11,12 +11,15 @@
     <string name="arrive">"도착"</string>
     <string name="bluetooth">"Bluetooth"</string>
     <string name="wifi">"Wi-Fi"</string>
+    <string name="cancel">"취소"</string>
+    <string name="ok">"확인"</string>
 
 
     <string name="select_app">"앱 선택"</string>
     <string name="location_setting">"위치 설정"</string>
     <string name="app_in_use">"스마트 설정 사용중"</string>
     <string name="app_content">"스마트 설정을 설정하시려면 터치하세요."</string>
+    <string name="delete_location">"해당 위치를 삭제하시겠습니까?"</string>
 
     <string name="launch_the_app">"%s 앱을 실행합니다."</string>
 

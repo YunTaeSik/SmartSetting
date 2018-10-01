@@ -14,7 +14,7 @@ public class TSLiveData<T> extends MutableLiveData<T> {
     }
 
     public void notifyObserver() {
-    //    getValue() = getValue();
+        //    getValue() = getValue();
     }
 
 }

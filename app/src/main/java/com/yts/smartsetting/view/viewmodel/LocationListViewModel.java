@@ -26,8 +26,12 @@ public class LocationListViewModel extends BaseViewModel {
         isEnable.setValue(SharedPrefsUtils.getBooleanPreference(context, Keys.LOCATION_ENABLE));
         List<Location> locationList = RealmService.getLocationList();
         if (locationList != null) {
-            mLocationList.getValue().clear();
-            mLocationList.getValue().addAll(locationList);
+            ArrayList<Object> objectList = new ArrayList<>();
+            objectList.addAll(locationList);
+            //TODO
+            mLocationList.setValue(objectList);
+            /*mLocationList.getValue().clear();
+            mLocationList.getValue().addAll(locationList);*/
         }
     }
 

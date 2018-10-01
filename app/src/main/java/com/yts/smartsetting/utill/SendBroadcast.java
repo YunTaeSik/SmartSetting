@@ -18,8 +18,8 @@ public class SendBroadcast {
         context.sendBroadcast(send);
     }
 
-    public static void addLocation(Context context) {
-        Intent send = new Intent(Keys.ADD_LOCATION);
+    public static void editLocation(Context context) {
+        Intent send = new Intent(Keys.EDIT_LOCATION);
         context.sendBroadcast(send);
     }
 

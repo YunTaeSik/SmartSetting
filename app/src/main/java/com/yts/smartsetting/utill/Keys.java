@@ -26,4 +26,5 @@ public class Keys {
     public static final String EDIT_BLUE_TOOTH = "editBlueTooth";
     public static final String SELECT_LOCATION = "selectLocation";
     public static final String ADD_LOCATION = "addLocation";
+    public static final String EDIT_LOCATION = "editLocation";
 }

@@ -49,9 +49,14 @@ public class BaseViewModel extends ViewModel {
             return;
         }
         RealmService.saveLocation(location);
-
         if (baseCallback != null) {
             baseCallback.save(location);
+        }
+    }
+
+    public void deleteLocation(Location location) {
+        if (baseCallback != null) {
+            baseCallback.deleteLocation(location);
         }
     }
 

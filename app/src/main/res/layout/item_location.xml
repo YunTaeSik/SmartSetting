@@ -23,6 +23,7 @@
             android:layout_height="wrap_content"
             android:foreground="?android:selectableItemBackground"
             android:onClick="@{()->model.startLocationDialog()}"
+            android:onLongClick="@{()->model.deleteLongClick()}"
             android:orientation="horizontal"
             android:padding="16dp">
 

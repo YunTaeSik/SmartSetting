@@ -64,7 +64,7 @@ public class LocationListDialog extends DialogFragment {
         public void onReceive(Context context, Intent intent) {
             String action = intent.getAction();
             if (action != null) {
-                if (action.equals(Keys.ADD_LOCATION)) {
+                if (action.equals(Keys.EDIT_LOCATION)) {
                     if (model != null) {
                         model.initData(getActivity());
                     }
@@ -75,7 +75,7 @@ public class LocationListDialog extends DialogFragment {
 
     private IntentFilter getIntentFilter() {
         IntentFilter intentFilter = new IntentFilter();
-        intentFilter.addAction(Keys.ADD_LOCATION);
+        intentFilter.addAction(Keys.EDIT_LOCATION);
         return intentFilter;
     }
 

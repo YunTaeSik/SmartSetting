@@ -16,6 +16,12 @@ public class RealmService {
         realm.commitTransaction();
     }
 
+    public static void deleteLocation(Location location) {
+        realm.beginTransaction();
+        realm.where(Location.class).equalTo("date", location.getDate()).findAll().deleteAllFromRealm();
+        realm.commitTransaction();
+    }
+
     public static List<Location> getLocationList() {
         return realm.copyFromRealm(realm.where(Location.class).findAll().sort("date", Sort.DESCENDING));
     }
