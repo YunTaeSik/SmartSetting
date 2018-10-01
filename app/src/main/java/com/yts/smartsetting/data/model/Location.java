@@ -107,7 +107,9 @@ public class Location extends RealmObject implements Parcelable {
         setLeaveWifi(location.isLeaveWifi());
     }
 
-    public Location(PlaceData placeData) {
+
+
+    public void setLocation(PlaceData placeData) {
         setDate(String.valueOf(System.currentTimeMillis()));
         setName(placeData.getName());
         setAddress(placeData.getAddress());

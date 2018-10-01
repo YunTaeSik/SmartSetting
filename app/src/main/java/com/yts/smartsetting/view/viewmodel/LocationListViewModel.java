@@ -1,12 +1,16 @@
 package com.yts.smartsetting.view.viewmodel;
 
 
+import android.content.BroadcastReceiver;
 import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.support.v7.widget.SwitchCompat;
 import android.view.View;
 
 import com.yts.smartsetting.data.TSLiveData;
 import com.yts.smartsetting.data.model.Location;
+import com.yts.smartsetting.data.model.PlaceData;
 import com.yts.smartsetting.data.realm.RealmService;
 import com.yts.smartsetting.utill.Keys;
 import com.yts.smartsetting.utill.SharedPrefsUtils;
@@ -22,6 +26,7 @@ public class LocationListViewModel extends BaseViewModel {
         isEnable.setValue(SharedPrefsUtils.getBooleanPreference(context, Keys.LOCATION_ENABLE));
         List<Location> locationList = RealmService.getLocationList();
         if (locationList != null) {
+            mLocationList.getValue().clear();
             mLocationList.getValue().addAll(locationList);
         }
     }
@@ -35,4 +40,6 @@ public class LocationListViewModel extends BaseViewModel {
             }
         }
     }
+
+
 }

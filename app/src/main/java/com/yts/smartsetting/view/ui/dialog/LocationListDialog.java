@@ -1,6 +1,10 @@
 package com.yts.smartsetting.view.ui.dialog;
 
 import android.arch.lifecycle.ViewModelProviders;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -13,6 +17,7 @@ import android.view.ViewGroup;
 import com.yts.smartsetting.R;
 import com.yts.smartsetting.callback.BaseCallback;
 import com.yts.smartsetting.databinding.LocationListBinding;
+import com.yts.smartsetting.utill.Keys;
 import com.yts.smartsetting.view.viewmodel.LocationListViewModel;
 
 public class LocationListDialog extends DialogFragment {
@@ -41,6 +46,37 @@ public class LocationListDialog extends DialogFragment {
         model.initData(getActivity());
         binding.setModel(model);
         binding.setLifecycleOwner(this);
+        if (getActivity() != null) {
+            getActivity().registerReceiver(broadcastReceiver, getIntentFilter());
+        }
+    }
+
+    @Override
+    public void onDestroy() {
+        if (getActivity() != null) {
+            getActivity().unregisterReceiver(broadcastReceiver);
+        }
+        super.onDestroy();
+    }
+
+    private BroadcastReceiver broadcastReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            String action = intent.getAction();
+            if (action != null) {
+                if (action.equals(Keys.ADD_LOCATION)) {
+                    if (model != null) {
+                        model.initData(getActivity());
+                    }
+                }
+            }
+        }
+    };
+
+    private IntentFilter getIntentFilter() {
+        IntentFilter intentFilter = new IntentFilter();
+        intentFilter.addAction(Keys.ADD_LOCATION);
+        return intentFilter;
     }
 
 }

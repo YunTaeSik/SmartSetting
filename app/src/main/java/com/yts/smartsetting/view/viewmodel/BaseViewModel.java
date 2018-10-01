@@ -5,6 +5,7 @@ import android.arch.lifecycle.ViewModel;
 import com.yts.smartsetting.callback.BaseCallback;
 import com.yts.smartsetting.data.model.Location;
 import com.yts.smartsetting.data.realm.RealmService;
+import com.yts.smartsetting.utill.SendBroadcast;
 import com.yts.smartsetting.utill.ToastMake;
 
 import io.realm.Realm;
@@ -48,6 +49,10 @@ public class BaseViewModel extends ViewModel {
             return;
         }
         RealmService.saveLocation(location);
+
+        if (baseCallback != null) {
+            baseCallback.save(location);
+        }
     }
 
     public void saveEnable(String kind, boolean enable) {

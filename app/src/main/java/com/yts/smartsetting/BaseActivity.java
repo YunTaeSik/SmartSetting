@@ -167,8 +167,7 @@ public class BaseActivity extends AppCompatActivity implements BaseCallback {
 
     @Override
     public void save(Location location) {
-
-
+        SendBroadcast.addLocation(this);
     }
 
     @Override
@@ -203,7 +202,7 @@ public class BaseActivity extends AppCompatActivity implements BaseCallback {
     @Override
     public void startLocationDialog(Location location) {
         LocationDialog dialog = LocationDialog.newInstance(location);
-        addFragmentDialog(dialog, android.R.transition.slide_bottom);
+        startFragmentDialog(dialog, android.R.transition.slide_bottom);
     }
 
     @Override

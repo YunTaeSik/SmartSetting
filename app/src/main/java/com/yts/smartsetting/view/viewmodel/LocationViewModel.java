@@ -9,6 +9,7 @@ import android.content.IntentFilter;
 import android.view.View;
 import android.widget.ToggleButton;
 
+import com.airbnb.lottie.L;
 import com.google.android.gms.maps.model.LatLng;
 import com.yts.smartsetting.R;
 import com.yts.smartsetting.data.TSLiveData;
@@ -77,8 +78,9 @@ public class LocationViewModel extends BaseViewModel {
                 if (action.equals(Keys.SELECT_LOCATION)) {
                     isSelectLocation.setValue(true);
                     PlaceData placeData = intent.getParcelableExtra(Keys.PLACE);
-                    Location getLocation = new Location(placeData);
-                    location.setValue(getLocation);
+                    Location loc = location.getValue();
+                    loc.setLocation(placeData);
+                    location.setValue(loc);
                 }
             }
         }
