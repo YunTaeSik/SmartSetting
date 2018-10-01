@@ -1,4 +1,5 @@
 <resources>
+
     <string name="app_name">SmartSetting</string>
     <string name="setting">"Setting"</string>
     <string name="use">"Use"</string>
@@ -26,6 +27,8 @@
     <string name="arrive_location">"When we arrived at the location"</string>
 
 
+    <!--error-->
+    <string name="error_permission">"Permissions must be allowed to use."</string>
     <!--hint-->
     <string name="hint_location">"Please select a location."</string>
 

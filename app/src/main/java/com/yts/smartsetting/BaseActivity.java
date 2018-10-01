@@ -1,6 +1,7 @@
 package com.yts.smartsetting;
 
 import android.arch.lifecycle.ViewModelProviders;
+import android.content.Intent;
 import android.content.pm.ResolveInfo;
 import android.os.Build;
 import android.os.Bundle;
@@ -12,16 +13,24 @@ import android.support.v7.app.AppCompatActivity;
 import android.transition.TransitionInflater;
 import android.view.inputmethod.InputMethodManager;
 
+import com.google.android.gms.location.places.Place;
+import com.google.android.gms.location.places.ui.PlacePicker;
+import com.gun0912.tedpermission.PermissionListener;
 import com.yts.smartsetting.callback.BaseCallback;
 import com.yts.smartsetting.data.model.Location;
 import com.yts.smartsetting.utill.Keys;
+import com.yts.smartsetting.utill.PermissionCheck;
+import com.yts.smartsetting.utill.RequestCode;
 import com.yts.smartsetting.utill.SendBroadcast;
 import com.yts.smartsetting.utill.SharedPrefsUtils;
+import com.yts.smartsetting.utill.ShowIntent;
 import com.yts.smartsetting.utill.ToastMake;
 import com.yts.smartsetting.view.ui.dialog.LocationDialog;
 import com.yts.smartsetting.view.ui.dialog.LocationListDialog;
 import com.yts.smartsetting.view.viewmodel.BaseViewModel;
 import com.yts.smartsetting.view.viewmodel.MainViewModel;
+
+import java.util.ArrayList;
 
 import io.reactivex.disposables.CompositeDisposable;
 
@@ -141,20 +150,57 @@ public class BaseActivity extends AppCompatActivity implements BaseCallback {
                 String packageName = resolveInfo.activityInfo.packageName;
                 SharedPrefsUtils.setStringPreference(this, Keys.BLUE_TOOTH_NAME, name);
                 SharedPrefsUtils.setStringPreference(this, Keys.BLUE_TOOTH_PACKAGENAME, packageName);
-                SendBroadcast.buleToothEdit(this);
+                SendBroadcast.blueToothEdit(this);
             }
         }
     }
 
     @Override
     public void startLocationListDialog() {
-        LocationListDialog dialog = LocationListDialog.newInstance();
-        startFragmentDialog(dialog, android.R.transition.slide_right);
+        PermissionCheck.loactionCheck(this, new PermissionListener() {
+            @Override
+            public void onPermissionGranted() {
+                LocationListDialog dialog = LocationListDialog.newInstance();
+                startFragmentDialog(dialog, android.R.transition.slide_right);
+            }
+
+            @Override
+            public void onPermissionDenied(ArrayList<String> deniedPermissions) {
+                ToastMake.make(BaseActivity.this, R.string.error_permission);
+            }
+        });
+
     }
 
     @Override
     public void startLocationDialog(Location location) {
         LocationDialog dialog = LocationDialog.newInstance(location);
         startFragmentDialog(dialog, android.R.transition.slide_right);
+    }
+
+    @Override
+    public void startSelectLocation() {
+        PermissionCheck.loactionCheck(this, new PermissionListener() {
+            @Override
+            public void onPermissionGranted() {
+                ShowIntent.location(BaseActivity.this, RequestCode.SELECT_LOCATION);
+            }
+
+            @Override
+            public void onPermissionDenied(ArrayList<String> deniedPermissions) {
+
+            }
+        });
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (data != null && resultCode == RESULT_OK) {
+            if (requestCode == RequestCode.SELECT_LOCATION) {
+                Place place = PlacePicker.getPlace(this, data);
+                SendBroadcast.place(this, Keys.SELECT_LOCATION, place);
+            }
+        }
     }
 }

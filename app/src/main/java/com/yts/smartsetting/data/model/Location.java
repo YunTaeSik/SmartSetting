@@ -72,6 +72,14 @@ public class Location extends RealmObject implements Parcelable {
     public Location() {
     }
 
+    public Location(PlaceData placeData) {
+        setDate(String.valueOf(System.currentTimeMillis()));
+        setName(placeData.getName());
+        setAddress(placeData.getAddress());
+        setLatitude(String.valueOf(placeData.getLatLng().latitude));
+        setLongitude(String.valueOf(placeData.getLatLng().longitude));
+    }
+
     protected Location(Parcel in) {
         this.date = in.readString();
         this.name = in.readString();

@@ -35,4 +35,10 @@ public class BaseViewModel extends ViewModel {
             baseCallback.startLocationDialog(location);
         }
     }
+
+    public void startSelectLocation() {
+        if (baseCallback != null) {
+            baseCallback.startSelectLocation();
+        }
+    }
 }

@@ -26,6 +26,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyDgD-5k5kbbKtAa7_YKEWxWs2FEFNmE5BA" />
         <activity
             android:name=".view.ui.activity.MainActivity"
             android:launchMode="singleTask"

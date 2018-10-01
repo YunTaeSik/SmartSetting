@@ -12,4 +12,6 @@ public interface BaseCallback {
     void startLocationListDialog();
 
     void startLocationDialog(Location location);
+
+    void startSelectLocation();
 }

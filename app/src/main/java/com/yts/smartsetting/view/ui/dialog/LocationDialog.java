@@ -48,5 +48,16 @@ public class LocationDialog extends DialogFragment {
         model.setLocation(mLocation);
         binding.setModel(model);
         binding.setLifecycleOwner(this);
+        if (getActivity() != null) {
+            getActivity().registerReceiver(model.getBroadcastReceiver(), model.getIntentFilter());
+        }
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        if (getActivity() != null && binding != null && binding.getModel() != null) {
+            getActivity().unregisterReceiver(binding.getModel().getBroadcastReceiver());
+        }
     }
 }

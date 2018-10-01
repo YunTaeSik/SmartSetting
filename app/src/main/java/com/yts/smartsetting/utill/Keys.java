@@ -6,6 +6,7 @@ public class Keys {
     public static final String KIND = "kind";
     public static final String EAR = "ear";
     public static final String LOCATION = "location";
+    public static final String PLACE = "place";
 
     public static final String BLUE_TOOTH = "blueTooth";
 
@@ -21,4 +22,5 @@ public class Keys {
     //브로드 캐스트 리시버
     public static final String EDIT_EAR = "editEar";
     public static final String EDIT_BLUE_TOOTH = "editBlueTooth";
+    public static final String SELECT_LOCATION = "selectLocation";
 }
