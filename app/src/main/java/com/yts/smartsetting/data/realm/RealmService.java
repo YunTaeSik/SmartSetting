@@ -17,6 +17,6 @@ public class RealmService {
     }
 
     public static List<Location> getLocationList() {
-        return realm.copyToRealm(realm.where(Location.class).findAll().sort("date", Sort.DESCENDING));
+        return realm.copyFromRealm(realm.where(Location.class).findAll().sort("date", Sort.DESCENDING));
     }
 }

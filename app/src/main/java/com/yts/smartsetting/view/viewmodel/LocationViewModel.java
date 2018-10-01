@@ -47,6 +47,12 @@ public class LocationViewModel extends BaseViewModel {
 
     }
 
+    public void startLocationDialog() {
+        if (location.getValue() != null) {
+            startLocationDialog(new Location(location.getValue()));
+        }
+    }
+
     public void saveLocation() {
         Location location = this.location.getValue();
         if (location == null) {
@@ -58,7 +64,6 @@ public class LocationViewModel extends BaseViewModel {
             toast(R.string.hint_location);
             return;
         }
-        location.setDate(String.valueOf(System.currentTimeMillis()));
         save(location);
         close();
     }

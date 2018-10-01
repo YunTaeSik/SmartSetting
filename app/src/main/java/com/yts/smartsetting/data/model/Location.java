@@ -92,6 +92,19 @@ public class Location extends RealmObject implements Parcelable {
     }
 
     public Location() {
+        setDate(String.valueOf(System.currentTimeMillis()));
+    }
+
+    public Location(Location location) {
+        setDate(location.getDate());
+        setName(location.getName());
+        setAddress(location.getAddress());
+        setLatitude(location.getLatitude());
+        setLongitude(location.getLongitude());
+        setArriveBlueTooth(location.isArriveBlueTooth());
+        setArriveWifi(location.isArriveWifi());
+        setLeaveBlueTooth(location.isLeaveBlueTooth());
+        setLeaveWifi(location.isLeaveWifi());
     }
 
     public Location(PlaceData placeData) {
