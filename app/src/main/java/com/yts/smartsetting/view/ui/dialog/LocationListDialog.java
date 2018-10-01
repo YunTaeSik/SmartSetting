@@ -10,7 +10,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.yts.smartsetting.BaseActivity;
 import com.yts.smartsetting.R;
 import com.yts.smartsetting.callback.BaseCallback;
 import com.yts.smartsetting.databinding.LocationListBinding;

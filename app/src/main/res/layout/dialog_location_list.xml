@@ -73,6 +73,7 @@
             <View style="@style/lineView" />
 
             <android.support.v7.widget.RecyclerView
+                setLocationAdapter="@{model.mLocationList}"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
 

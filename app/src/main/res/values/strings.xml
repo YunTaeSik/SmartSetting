@@ -9,9 +9,11 @@
     <string name="location">"Location"</string>
     <string name="basics">"Basics"</string>
     <string name="bluetooth">"Bluetooth"</string>
+    <string name="arrive">"Arrive"</string>
     <string name="wifi">"Wi-Fi"</string>
     <string name="on">"ON"</string>
     <string name="off">"OFF"</string>
+
 
     <string name="notification_channel_id">"notification_ts_channel_id"</string>
     <string name="notification_channel_name">"notification_ts_channel_name"</string>
@@ -21,11 +23,12 @@
     <string name="app_in_use">"Smart Setting in use"</string>
     <string name="app_content">"Touch to set smart settings."</string>
 
-    <string name="launch_the_app">"Launch the %s app."</string>
+    <string name="bluetooth_turn">"Bluetooth : %s"</string>
+    <string name="wifi_turn">"Wifi : %s"</string>
 
+    <string name="launch_the_app">"Launch the %s app."</string>
     <string name="no_app_selected">"No apps selected."</string>
     <string name="no_app_available">"No app available to choose from."</string>
-
     <string name="connect_earphone">"If I connect my earphone,"</string>
     <string name="connect_bluetooth">"If I connect my bluetooth,"</string>
     <string name="arrive_location">"When we arrived at the location"</string>
