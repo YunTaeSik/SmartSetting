@@ -8,6 +8,7 @@ import android.content.IntentFilter;
 import android.support.v7.widget.SwitchCompat;
 import android.view.View;
 
+import com.google.android.gms.ads.AdListener;
 import com.yts.smartsetting.callback.SettingCallback;
 import com.yts.smartsetting.data.TSLiveData;
 import com.yts.smartsetting.utill.Keys;
@@ -23,6 +24,18 @@ public class SettingViewModel extends BaseViewModel {
 
     public void setSettingCallback(SettingCallback settingCallback) {
         this.settingCallback = settingCallback;
+    }
+
+    @Override
+    public void setInterstitialAd(Context context) {
+        super.setInterstitialAd(context);
+        interstitialAd.setAdListener(new AdListener() {
+            @Override
+            public void onAdClosed() {
+                startAppSelect();
+                interstitialAd.loadAd(adRequest);
+            }
+        });
     }
 
     public void setKind(Context context, String kind) {
@@ -47,8 +60,12 @@ public class SettingViewModel extends BaseViewModel {
     }
 
     public void startAppSelect() {
-        if (settingCallback != null) {
-            settingCallback.startFragment(AppSelectDialog.newInstance(mKind.getValue()));
+        if (interstitialAd != null && interstitialAd.isLoaded()) {
+            interstitialAd.show();
+        } else {
+            if (settingCallback != null) {
+                settingCallback.startFragment(AppSelectDialog.newInstance(mKind.getValue()));
+            }
         }
     }
 

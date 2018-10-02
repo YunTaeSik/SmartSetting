@@ -46,6 +46,7 @@ public class AppSelectSettingDialog extends DialogFragment implements SettingCal
         model = ViewModelProviders.of(this).get(SettingViewModel.class);
         model.setBaseCallback((BaseCallback) getActivity());
         model.setSettingCallback(this);
+        model.setInterstitialAd(getActivity());
         model.setKind(getActivity(), getArguments().getString(Keys.KIND));
         binding.setModel(model);
         binding.setLifecycleOwner(this);
