@@ -25,7 +25,7 @@ public class AlertDialogCreate {
 
     private AlertDialogCreate(Context context) {
         mContext = context;
-        alertDialog = new AlertDialog.Builder(context);
+        alertDialog = new AlertDialog.Builder(context, R.style.AlertDialogTheme);
         alertDialog.setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {

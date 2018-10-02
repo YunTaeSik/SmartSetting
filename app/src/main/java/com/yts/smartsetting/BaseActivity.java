@@ -14,6 +14,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.transition.TransitionInflater;
 import android.view.inputmethod.InputMethodManager;
 
+import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.location.places.Place;
 import com.google.android.gms.location.places.ui.PlacePicker;
 import com.gun0912.tedpermission.PermissionListener;
@@ -53,6 +54,7 @@ public class BaseActivity extends AppCompatActivity implements BaseCallback {
         model = ViewModelProviders.of(this).get(BaseViewModel.class);
         inputMethodManager = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
         compositeDisposable = new CompositeDisposable();
+
     }
 
 

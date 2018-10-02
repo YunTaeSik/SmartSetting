@@ -2,9 +2,12 @@ package com.yts.smartsetting.view.viewmodel;
 
 import android.arch.lifecycle.ViewModel;
 
+import com.google.android.gms.ads.AdRequest;
+import com.yts.smartsetting.R;
 import com.yts.smartsetting.callback.BaseCallback;
 import com.yts.smartsetting.data.model.Location;
 import com.yts.smartsetting.data.realm.RealmService;
+import com.yts.smartsetting.utill.Keys;
 import com.yts.smartsetting.utill.SendBroadcast;
 import com.yts.smartsetting.utill.ToastMake;
 
@@ -13,6 +16,7 @@ import io.realm.Realm;
 public class BaseViewModel extends ViewModel {
     public BaseCallback baseCallback;
     private long mLastClickTime = 0;
+    public AdRequest adRequest = new AdRequest.Builder().addTestDevice(Keys.TEST_DEVICE).build();
 
     public boolean clickTimeCheck() {
         if (System.currentTimeMillis() - mLastClickTime < 700) {
@@ -89,7 +93,8 @@ public class BaseViewModel extends ViewModel {
             baseCallback.startSelectLocation();
         }
     }
-    public void invite(){
+
+    public void invite() {
         if (baseCallback != null) {
             baseCallback.invite();
         }

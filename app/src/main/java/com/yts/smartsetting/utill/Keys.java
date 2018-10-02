@@ -1,6 +1,7 @@
 package com.yts.smartsetting.utill;
 
 public class Keys {
+    public static final String TEST_DEVICE = "1AAF5C26F373E0C2E84FCD5A8FB409BF";
     public static final int DISTANCE_METER = 100;
 
     public static final String EMPTY = "empty";

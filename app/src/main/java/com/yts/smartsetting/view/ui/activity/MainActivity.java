@@ -33,7 +33,6 @@ public class MainActivity extends BaseActivity implements MainCallback {
 
         registerReceiver(model.getBroadcastReceiver(), model.getIntentFilter());
 
-
     }
 
     @Override
