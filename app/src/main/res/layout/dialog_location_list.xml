@@ -99,6 +99,7 @@
             setBanner="@{model.adRequest}"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@color/cardBackground"
             app:adSize="SMART_BANNER"
             app:adUnitId="@string/banner_ad_id" />
     </LinearLayout>
