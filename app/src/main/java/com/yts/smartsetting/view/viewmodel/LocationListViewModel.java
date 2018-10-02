@@ -8,6 +8,7 @@ import android.content.IntentFilter;
 import android.support.v7.widget.SwitchCompat;
 import android.view.View;
 
+import com.google.android.gms.ads.AdListener;
 import com.yts.smartsetting.data.TSLiveData;
 import com.yts.smartsetting.data.model.Location;
 import com.yts.smartsetting.data.model.PlaceData;
@@ -18,19 +19,39 @@ import com.yts.smartsetting.utill.SharedPrefsUtils;
 import java.util.ArrayList;
 import java.util.List;
 
+import io.reactivex.Observable;
+import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.functions.Consumer;
+
 public class LocationListViewModel extends BaseViewModel {
     public TSLiveData<Boolean> isEnable = new TSLiveData<>(false);
     public TSLiveData<ArrayList<Object>> mLocationList = new TSLiveData<>(new ArrayList<Object>());
 
-    public void initData(Context context) {
+    public void initData(Context context, CompositeDisposable compositeDisposable) {
         isEnable.setValue(SharedPrefsUtils.getBooleanPreference(context, Keys.LOCATION_ENABLE));
-        List<Location> locationList = RealmService.getLocationList();
-        if (locationList != null) {
-            ArrayList<Object> objectList = new ArrayList<>();
-            objectList.addAll(locationList);
-            //TODO
-            mLocationList.setValue(objectList);
-        }
+
+        compositeDisposable.add(RealmService.getLocationList().subscribe(new Consumer<List<Location>>() {
+            @Override
+            public void accept(List<Location> locationList) throws Exception {
+                if (locationList != null) {
+                    ArrayList<Object> objectList = new ArrayList<>();
+                    objectList.addAll(locationList);
+                    mLocationList.setValue(objectList);
+                }
+            }
+        }));
+    }
+
+    @Override
+    public void setInterstitialAd(Context context) {
+        super.setInterstitialAd(context);
+        interstitialAd.setAdListener(new AdListener() {
+            @Override
+            public void onAdClosed() {
+                startLocationDialog();
+                interstitialAd.loadAd(adRequest);
+            }
+        });
     }
 
     public void enable(View view) {
@@ -41,6 +62,15 @@ public class LocationListViewModel extends BaseViewModel {
                 baseCallback.saveEnable(Keys.LOCATION, isEnable);
             }
         }
+    }
+
+    public void startAdLocationDialog() {
+        if (interstitialAd != null && interstitialAd.isLoaded()) {
+            interstitialAd.show();
+        } else {
+            startLocationDialog();
+        }
+
     }
 
 

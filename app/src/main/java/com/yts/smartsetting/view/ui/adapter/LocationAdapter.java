@@ -29,6 +29,11 @@ public class LocationAdapter extends RecyclerView.Adapter {
         mItemList = itemList;
     }
 
+    public void setItemList(List<Object> itemList) {
+        this.mItemList = itemList;
+        notifyDataSetChanged();
+    }
+
     @Override
     public long getItemId(int position) {
         Object item = mItemList.get(position);
@@ -71,6 +76,7 @@ public class LocationAdapter extends RecyclerView.Adapter {
 
                 Location location = (Location) item;
                 LocationViewModel model = new LocationViewModel();
+                model.setInterstitialAd(context);
                 model.setLocation(location);
                 model.setBaseCallback((BaseCallback) context);
                 holder.setViewModel(model);

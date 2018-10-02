@@ -79,6 +79,7 @@
                 <View style="@style/lineView" />
 
                 <android.support.v7.widget.RecyclerView
+                    android:id="@+id/list_item"
                     setLocationAdapter="@{model.mLocationList}"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent" />
@@ -87,7 +88,7 @@
             <android.support.design.widget.FloatingActionButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:onClick="@{()->model.startLocationDialog()}"
+                android:onClick="@{()->model.startAdLocationDialog()}"
                 android:tint="@color/tintColor"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
@@ -95,12 +96,12 @@
                 app:useCompatPadding="true" />
         </android.support.constraint.ConstraintLayout>
 
-        <com.google.android.gms.ads.AdView
-            setBanner="@{model.adRequest}"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/cardBackground"
-            app:adSize="SMART_BANNER"
-            app:adUnitId="@string/banner_ad_id" />
+        <!--   <com.google.android.gms.ads.AdView
+               setBanner="@{model.adRequest}"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:background="@color/cardBackground"
+               app:adSize="SMART_BANNER"
+               app:adUnitId="@string/banner_ad_id" />-->
     </LinearLayout>
 </layout>

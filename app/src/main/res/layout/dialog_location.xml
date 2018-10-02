@@ -254,14 +254,14 @@
                 <View style="@style/lineView" />
             </LinearLayout>
         </ScrollView>
-
+<!--
         <com.google.android.gms.ads.AdView
             setBanner="@{model.adRequest}"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:adSize="SMART_BANNER"
             android:background="@color/cardBackground"
-            app:adUnitId="@string/banner_ad_id" />
+            app:adUnitId="@string/banner_ad_id" />-->
     </LinearLayout>
 
 

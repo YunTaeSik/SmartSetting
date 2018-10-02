@@ -181,8 +181,9 @@ public class BaseActivity extends AppCompatActivity implements BaseCallback {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 RealmService.deleteLocation(location);
-                LocationListDialog dialog = LocationListDialog.newInstance();
-                startFragmentDialog(dialog, android.R.transition.slide_right);
+                SendBroadcast.editLocation(BaseActivity.this);
+             /*   LocationListDialog dialog = LocationListDialog.newInstance();
+                startFragmentDialog(dialog, android.R.transition.slide_right);*/
             }
         });
     }

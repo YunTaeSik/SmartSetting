@@ -27,7 +27,7 @@ public class IntroActivity extends BaseActivity {
         IntroBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_intro);
 
         mCompositeDisposable = new CompositeDisposable();
-        mCompositeDisposable.add(Single.timer(1500, TimeUnit.MILLISECONDS)
+        mCompositeDisposable.add(Single.timer(1800, TimeUnit.MILLISECONDS)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Consumer<Long>() {

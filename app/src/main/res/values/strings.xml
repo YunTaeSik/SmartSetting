@@ -1,7 +1,7 @@
 <resources>
     <string name="ad_app_id">"ca-app-pub-9788292917303375~7718408116"</string>
     <string name="banner_ad_id">"ca-app-pub-9788292917303375/2233722111"</string>
-    <string name="screen_ad_id">"ca-app-pub-9788292917303375/3179753762"</string>
+    <string name="screen_ad_id">"ca-app-pub-9788292917303375/4006802931"</string>
     <string name="reward_ad_id">"ca-app-pub-9788292917303375/3590817309"</string>
 
     <string name="invitation_deep_link">"https://sn3d4.app.goo.gl/SmartSetting"</string>

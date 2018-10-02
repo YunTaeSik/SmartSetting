@@ -1,8 +1,11 @@
 package com.yts.smartsetting.view.viewmodel;
 
 import android.arch.lifecycle.ViewModel;
+import android.content.Context;
 
+import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.InterstitialAd;
 import com.yts.smartsetting.R;
 import com.yts.smartsetting.callback.BaseCallback;
 import com.yts.smartsetting.data.model.Location;
@@ -17,6 +20,7 @@ public class BaseViewModel extends ViewModel {
     public BaseCallback baseCallback;
     private long mLastClickTime = 0;
     public AdRequest adRequest = new AdRequest.Builder().addTestDevice(Keys.TEST_DEVICE).build();
+    public InterstitialAd interstitialAd;
 
     public boolean clickTimeCheck() {
         if (System.currentTimeMillis() - mLastClickTime < 700) {
@@ -28,6 +32,12 @@ public class BaseViewModel extends ViewModel {
 
     public void setBaseCallback(BaseCallback baseCallback) {
         this.baseCallback = baseCallback;
+    }
+
+    public void setInterstitialAd(Context context) {
+        interstitialAd = new InterstitialAd(context);
+        interstitialAd.setAdUnitId(context.getString(R.string.screen_ad_id));
+        interstitialAd.loadAd(adRequest);
     }
 
     public void close() {
@@ -82,7 +92,7 @@ public class BaseViewModel extends ViewModel {
         }
     }
 
-    public void startLocationDialog(Location location) {
+    public void startLocationDialog(final Location location) {
         if (baseCallback != null) {
             baseCallback.startLocationDialog(location);
         }

@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.ToggleButton;
 
 import com.airbnb.lottie.L;
+import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.maps.model.LatLng;
 import com.yts.smartsetting.R;
 import com.yts.smartsetting.data.TSLiveData;
@@ -33,6 +34,20 @@ public class LocationViewModel extends BaseViewModel {
         }
     }
 
+    @Override
+    public void setInterstitialAd(Context context) {
+        super.setInterstitialAd(context);
+        interstitialAd.setAdListener(new AdListener() {
+            @Override
+            public void onAdClosed() {
+                if (location != null && location.getValue() != null) {
+                    startLocationDialog(new Location(location.getValue()));
+                }
+                interstitialAd.loadAd(adRequest);
+            }
+        });
+    }
+
     public void toggle(View view) {
         int id = view.getId();
         if (view instanceof ToggleButton) {
@@ -52,8 +67,12 @@ public class LocationViewModel extends BaseViewModel {
     }
 
     public void startLocationDialog() {
-        if (location.getValue() != null) {
-            startLocationDialog(new Location(location.getValue()));
+        if (interstitialAd != null && interstitialAd.isLoaded()) {
+            interstitialAd.show();
+        } else {
+            if (location != null && location.getValue() != null) {
+                startLocationDialog(new Location(location.getValue()));
+            }
         }
     }
 

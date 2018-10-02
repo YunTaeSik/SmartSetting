@@ -34,9 +34,13 @@ import com.yts.smartsetting.view.ui.activity.MainActivity;
 
 import java.util.List;
 
+import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.functions.Consumer;
+
 public class Service extends android.app.Service {
     private ServiceReceiver serviceReceiver;
     private final static int NOTIFICATION_ID = 111;
+    private CompositeDisposable compositeDisposable;
 
     private FusedLocationProviderClient mFusedLocationProviderClient;
 
@@ -48,6 +52,7 @@ public class Service extends android.app.Service {
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
+        compositeDisposable = new CompositeDisposable();
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
             Intent main = new Intent(this, MainActivity.class);
             PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, main, PendingIntent.FLAG_UPDATE_CURRENT);
@@ -91,25 +96,29 @@ public class Service extends android.app.Service {
 
     private LocationCallback locationCallback = new LocationCallback() {
         @Override
-        public void onLocationResult(LocationResult locationResult) {
+        public void onLocationResult(final LocationResult locationResult) {
             boolean enable = SharedPrefsUtils.getBooleanPreference(Service.this, Keys.LOCATION_ENABLE);
             Log.d("onLocationResult", "onLocationResult");
             if (enable) {
-                List<Location> locationList = RealmService.getLocationList();
-                for (Location location : locationList) {
-                    if (Distance.get(locationResult.getLastLocation(), location)) {
-                        boolean isArriveBlueTooth = location.isArriveBlueTooth();
-                        Turn.blueTooth(isArriveBlueTooth);
-                        boolean isArriveWifi = location.isArriveWifi();
-                        Turn.wifi(getApplicationContext(), isArriveWifi);
-                    } else {
-                        boolean isLeaveBlueTooth = location.isLeaveBlueTooth();
-                        Turn.blueTooth(isLeaveBlueTooth);
-                        boolean isLeaveWifi = location.isLeaveWifi();
-                        Turn.wifi(getApplicationContext(), isLeaveWifi);
-
+                compositeDisposable.add(RealmService.getLocationList().subscribe(new Consumer<List<Location>>() {
+                    @Override
+                    public void accept(List<Location> locationList) throws Exception {
+                        for (Location location : locationList) {
+                            if (Distance.get(locationResult.getLastLocation(), location)) {
+                                boolean isArriveBlueTooth = location.isArriveBlueTooth();
+                                Turn.blueTooth(isArriveBlueTooth);
+                                boolean isArriveWifi = location.isArriveWifi();
+                                Turn.wifi(getApplicationContext(), isArriveWifi);
+                            } else {
+                                boolean isLeaveBlueTooth = location.isLeaveBlueTooth();
+                                Turn.blueTooth(isLeaveBlueTooth);
+                                boolean isLeaveWifi = location.isLeaveWifi();
+                                Turn.wifi(getApplicationContext(), isLeaveWifi);
+                            }
+                        }
                     }
-                }
+                }));
+
             }
             super.onLocationResult(locationResult);
         }
@@ -123,6 +132,9 @@ public class Service extends android.app.Service {
             }
             if (mFusedLocationProviderClient != null && locationCallback != null) {
                 mFusedLocationProviderClient.removeLocationUpdates(locationCallback);
+            }
+            if (compositeDisposable != null) {
+                compositeDisposable.dispose();
             }
         } catch (Exception e) {
             e.printStackTrace();
