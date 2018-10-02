@@ -230,6 +230,51 @@
                             app:srcCompat="@drawable/ic_share_black_24dp" />
                     </LinearLayout>
                 </android.support.design.card.MaterialCardView>
+                <!--초대-->
+                <android.support.design.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:onClick="@{()->model.contact()}"
+                    app:cardBackgroundColor="@color/cardBackground"
+                    app:cardCornerRadius="2dp"
+                    app:cardElevation="2dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:foreground="?android:selectableItemBackground"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:padding="16dp">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="2dp"
+                                android:text="@string/contact_us" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="2dp"
+                                android:hint="@string/msg_contact"
+                                android:textSize="11sp" />
+                        </LinearLayout>
+
+                        <android.support.v7.widget.AppCompatImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:tint="@color/tintColor"
+                            app:srcCompat="@drawable/ic_mail_black_24dp" />
+                    </LinearLayout>
+                </android.support.design.card.MaterialCardView>
 
             </LinearLayout>
         </ScrollView>

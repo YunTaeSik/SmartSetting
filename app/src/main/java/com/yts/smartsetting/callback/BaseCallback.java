@@ -26,4 +26,6 @@ public interface BaseCallback {
     void startSelectLocation();
 
     void invite();
+
+    void contact();
 }

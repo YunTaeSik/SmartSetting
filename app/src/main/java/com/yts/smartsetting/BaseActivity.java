@@ -244,6 +244,11 @@ public class BaseActivity extends AppCompatActivity implements BaseCallback {
     }
 
     @Override
+    public void contact() {
+        ShowIntent.emailSend(this);
+    }
+
+    @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (data != null && resultCode == RESULT_OK) {

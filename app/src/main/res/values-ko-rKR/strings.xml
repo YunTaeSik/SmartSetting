@@ -20,6 +20,7 @@
     <string name="app_in_use">"스마트 설정 사용중"</string>
     <string name="app_content">"스마트 설정을 설정하시려면 터치하세요."</string>
     <string name="delete_location">"해당 위치를 삭제하시겠습니까?"</string>
+    <string name="contact_us">"문의하기"</string>
 
     <string name="launch_the_app">"%s 앱을 실행합니다."</string>
 
@@ -37,6 +38,7 @@
 
     <!--error-->
     <string name="error_permission">"권한을 허용해야 사용 할 수 있습니다."</string>
+    <string name="error_email">"설치된 이메일 프로그램이 없습니다.."</string>
 
     <!--hint-->
     <string name="hint_location">"위치를 선택해주세요."</string>
@@ -46,6 +48,7 @@
     <string name="msg_earphone">"자동으로 실행할 앱을 선택해주세요."</string>
     <string name="msg_bluetooth">"자동으로 실행할 앱을 선택해주세요."</string>
     <string name="msg_location">"자동 변경할 설정을 선택하세요."</string>
+    <string name="msg_contact">"개발자에게 문의메일을 보냅니다."</string>
 
     <string name="shared_title">초대하기</string>
     <string name="shared_message">지인에게 어플을 초대합니다 :)</string>

@@ -110,5 +110,9 @@ public class BaseViewModel extends ViewModel {
         }
     }
 
-
+    public void contact() {
+        if (baseCallback != null) {
+            baseCallback.contact();
+        }
+    }
 }

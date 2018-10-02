@@ -32,4 +32,20 @@ public class ShowIntent {
                 .build();
         ((Activity) context).startActivityForResult(intent, RequestCode.invite);
     }
+
+
+    public static void emailSend(Context context) {
+        Intent email = new Intent(Intent.ACTION_SENDTO);
+        email.setData(Uri.parse("mailto:"));
+        String[] address = {context.getString(R.string.contact_email)};
+        email.putExtra(Intent.EXTRA_EMAIL, address);
+        email.putExtra(Intent.EXTRA_SUBJECT, context.getString(R.string.contact_us));
+        try {
+            context.startActivity(email);
+        } catch (Exception e) {
+            e.printStackTrace();
+            ToastMake.make(context, context.getString(R.string.error_email));
+        }
+    }
+
 }
