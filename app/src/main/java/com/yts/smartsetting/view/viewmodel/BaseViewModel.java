@@ -89,6 +89,11 @@ public class BaseViewModel extends ViewModel {
             baseCallback.startSelectLocation();
         }
     }
+    public void invite(){
+        if (baseCallback != null) {
+            baseCallback.invite();
+        }
+    }
 
 
 }

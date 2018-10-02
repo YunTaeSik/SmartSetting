@@ -46,4 +46,8 @@
     <string name="msg_earphone">"자동으로 실행할 앱을 선택해주세요."</string>
     <string name="msg_bluetooth">"자동으로 실행할 앱을 선택해주세요."</string>
     <string name="msg_location">"자동 변경할 설정을 선택하세요."</string>
+
+    <string name="shared_title">초대하기</string>
+    <string name="shared_message">지인에게 어플을 초대합니다 :)</string>
+    <string name="shared_call_to_action_text">설치하기</string>
 </resources>

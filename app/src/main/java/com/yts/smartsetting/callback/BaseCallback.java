@@ -24,4 +24,6 @@ public interface BaseCallback {
     void startLocationDialog(Location location);
 
     void startSelectLocation();
+
+    void invite();
 }
