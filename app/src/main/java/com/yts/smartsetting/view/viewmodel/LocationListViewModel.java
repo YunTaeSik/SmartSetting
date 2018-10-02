@@ -30,8 +30,6 @@ public class LocationListViewModel extends BaseViewModel {
             objectList.addAll(locationList);
             //TODO
             mLocationList.setValue(objectList);
-            /*mLocationList.getValue().clear();
-            mLocationList.getValue().addAll(locationList);*/
         }
     }
 
