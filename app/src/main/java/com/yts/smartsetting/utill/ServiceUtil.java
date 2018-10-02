@@ -10,7 +10,8 @@ public class ServiceUtil {
     public static void start(Context context) {
         boolean earEnable = SharedPrefsUtils.getBooleanPreference(context, Keys.EAR_ENABLE);
         boolean blueEnable = SharedPrefsUtils.getBooleanPreference(context, Keys.BLUE_TOOTH_ENABLE);
-        if (earEnable || blueEnable) {
+        boolean locationEnable = SharedPrefsUtils.getBooleanPreference(context, Keys.LOCATION_ENABLE);
+        if (earEnable || blueEnable || locationEnable) {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                 context.startForegroundService(new Intent(context, Service.class));
             } else {

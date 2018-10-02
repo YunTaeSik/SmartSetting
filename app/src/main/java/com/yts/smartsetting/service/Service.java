@@ -22,11 +22,17 @@ import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationResult;
 import com.google.android.gms.location.LocationServices;
 import com.yts.smartsetting.R;
+import com.yts.smartsetting.data.model.Location;
+import com.yts.smartsetting.data.realm.RealmService;
 import com.yts.smartsetting.receiver.ServiceReceiver;
+import com.yts.smartsetting.utill.Distance;
 import com.yts.smartsetting.utill.Keys;
 import com.yts.smartsetting.utill.Register;
 import com.yts.smartsetting.utill.SharedPrefsUtils;
+import com.yts.smartsetting.utill.Turn;
 import com.yts.smartsetting.view.ui.activity.MainActivity;
+
+import java.util.List;
 
 public class Service extends android.app.Service {
     private ServiceReceiver serviceReceiver;
@@ -74,8 +80,9 @@ public class Service extends android.app.Service {
             LocationRequest mLocationRequest = new LocationRequest();
             mLocationRequest
                     .setInterval(1000 * 60 * 10) //10분
+                    .setInterval(1000) //10분
                     .setFastestInterval(0)
-                    .setSmallestDisplacement(100) //100m
+                    .setSmallestDisplacement(Keys.DISTANCE_METER) //100m
                     .setPriority(LocationRequest.PRIORITY_BALANCED_POWER_ACCURACY);
 
             mFusedLocationProviderClient.requestLocationUpdates(mLocationRequest, locationCallback, Looper.myLooper());
@@ -85,7 +92,25 @@ public class Service extends android.app.Service {
     private LocationCallback locationCallback = new LocationCallback() {
         @Override
         public void onLocationResult(LocationResult locationResult) {
-            Log.e("test", "test");
+            boolean enable = SharedPrefsUtils.getBooleanPreference(Service.this, Keys.LOCATION_ENABLE);
+            Log.d("onLocationResult", "onLocationResult");
+            if (enable) {
+                List<Location> locationList = RealmService.getLocationList();
+                for (Location location : locationList) {
+                    if (Distance.get(locationResult.getLastLocation(), location)) {
+                        boolean isArriveBlueTooth = location.isArriveBlueTooth();
+                        Turn.blueTooth(isArriveBlueTooth);
+                        boolean isArriveWifi = location.isArriveWifi();
+                        Turn.wifi(getApplicationContext(), isArriveWifi);
+                    } else {
+                        boolean isLeaveBlueTooth = location.isLeaveBlueTooth();
+                        Turn.blueTooth(isLeaveBlueTooth);
+                        boolean isLeaveWifi = location.isLeaveWifi();
+                        Turn.wifi(getApplicationContext(), isLeaveWifi);
+
+                    }
+                }
+            }
             super.onLocationResult(locationResult);
         }
     };

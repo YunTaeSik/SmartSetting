@@ -3,6 +3,8 @@ package com.yts.smartsetting.data.model;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import com.yts.smartsetting.utill.NullFilter;
+
 import io.realm.RealmObject;
 import io.realm.annotations.PrimaryKey;
 
@@ -60,7 +62,7 @@ public class Location extends RealmObject implements Parcelable {
     }
 
     public boolean isArriveBlueTooth() {
-        return arriveBlueTooth;
+        return NullFilter.check(arriveBlueTooth);
     }
 
     public void setArriveBlueTooth(boolean arriveBlueTooth) {
@@ -68,7 +70,7 @@ public class Location extends RealmObject implements Parcelable {
     }
 
     public boolean isArriveWifi() {
-        return arriveWifi;
+        return NullFilter.check(arriveWifi);
     }
 
     public void setArriveWifi(boolean arriveWifi) {
@@ -76,7 +78,7 @@ public class Location extends RealmObject implements Parcelable {
     }
 
     public boolean isLeaveBlueTooth() {
-        return leaveBlueTooth;
+        return NullFilter.check(leaveBlueTooth);
     }
 
     public void setLeaveBlueTooth(boolean leaveBlueTooth) {
@@ -84,7 +86,7 @@ public class Location extends RealmObject implements Parcelable {
     }
 
     public boolean isLeaveWifi() {
-        return leaveWifi;
+        return NullFilter.check(leaveWifi);
     }
 
     public void setLeaveWifi(boolean leaveWifi) {
@@ -106,7 +108,6 @@ public class Location extends RealmObject implements Parcelable {
         setLeaveBlueTooth(location.isLeaveBlueTooth());
         setLeaveWifi(location.isLeaveWifi());
     }
-
 
 
     public void setLocation(PlaceData placeData) {
