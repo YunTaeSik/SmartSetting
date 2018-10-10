@@ -1,6 +1,6 @@
 package com.yts.smartsetting.view.bindingAdapter;
 
-import android.databinding.BindingAdapter;
+import androidx.databinding.BindingAdapter;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;

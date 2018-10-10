@@ -1,9 +1,9 @@
 package com.yts.smartsetting.view.bindingAdapter;
 
 import android.content.Context;
-import android.databinding.BindingAdapter;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.databinding.BindingAdapter;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.yts.smartsetting.view.ui.adapter.AppInfoAdapter;
 import com.yts.smartsetting.view.ui.adapter.LocationAdapter;

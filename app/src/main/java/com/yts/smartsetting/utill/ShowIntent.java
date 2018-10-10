@@ -5,7 +5,7 @@ import android.content.Context;
 
 import android.content.Intent;
 import android.net.Uri;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.appinvite.AppInviteInvitation;
 import com.google.android.gms.location.places.ui.PlacePicker;

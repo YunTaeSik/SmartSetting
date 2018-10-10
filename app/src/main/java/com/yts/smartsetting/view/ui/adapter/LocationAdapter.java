@@ -1,19 +1,16 @@
 package com.yts.smartsetting.view.ui.adapter;
 
 import android.content.Context;
-import android.databinding.DataBindingUtil;
-import android.support.annotation.NonNull;
-import android.support.v7.widget.RecyclerView;
+import androidx.databinding.DataBindingUtil;
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
 import com.yts.smartsetting.R;
 import com.yts.smartsetting.callback.BaseCallback;
 import com.yts.smartsetting.data.model.Location;
-import com.yts.smartsetting.databinding.AppInfoBinding;
-import com.yts.smartsetting.databinding.EmptyAppBinding;
 import com.yts.smartsetting.databinding.LocationItemBinding;
-import com.yts.smartsetting.view.viewmodel.AppInfoViewModel;
 import com.yts.smartsetting.view.viewmodel.LocationViewModel;
 
 import java.util.List;

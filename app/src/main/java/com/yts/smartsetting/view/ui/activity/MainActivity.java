@@ -1,10 +1,8 @@
 package com.yts.smartsetting.view.ui.activity;
 
-import android.arch.lifecycle.Observer;
-import android.arch.lifecycle.ViewModelProviders;
-import android.databinding.DataBindingUtil;
+import androidx.lifecycle.ViewModelProviders;
+import androidx.databinding.DataBindingUtil;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 
 import com.yts.smartsetting.BaseActivity;
 import com.yts.smartsetting.R;
@@ -13,7 +11,6 @@ import com.yts.smartsetting.databinding.MainBinding;
 import com.yts.smartsetting.utill.ServiceUtil;
 import com.yts.smartsetting.view.ui.dialog.AppSelectSettingDialog;
 import com.yts.smartsetting.utill.Keys;
-import com.yts.smartsetting.view.ui.dialog.LocationListDialog;
 import com.yts.smartsetting.view.viewmodel.MainViewModel;
 
 public class MainActivity extends BaseActivity implements MainCallback {

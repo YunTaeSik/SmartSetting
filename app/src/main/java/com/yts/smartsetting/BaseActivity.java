@@ -1,20 +1,19 @@
 package com.yts.smartsetting;
 
-import android.arch.lifecycle.ViewModelProviders;
+import androidx.lifecycle.ViewModelProviders;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.ResolveInfo;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v4.app.DialogFragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.AppCompatActivity;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.DialogFragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.appcompat.app.AppCompatActivity;
 import android.transition.TransitionInflater;
 import android.view.inputmethod.InputMethodManager;
 
-import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.location.places.Place;
 import com.google.android.gms.location.places.ui.PlacePicker;
 import com.gun0912.tedpermission.PermissionListener;
@@ -33,7 +32,6 @@ import com.yts.smartsetting.view.ui.dialog.AlertDialogCreate;
 import com.yts.smartsetting.view.ui.dialog.LocationDialog;
 import com.yts.smartsetting.view.ui.dialog.LocationListDialog;
 import com.yts.smartsetting.view.viewmodel.BaseViewModel;
-import com.yts.smartsetting.view.viewmodel.MainViewModel;
 
 import java.util.ArrayList;
 

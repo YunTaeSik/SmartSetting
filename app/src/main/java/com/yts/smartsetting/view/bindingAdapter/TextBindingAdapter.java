@@ -1,7 +1,7 @@
 package com.yts.smartsetting.view.bindingAdapter;
 
 import android.content.Context;
-import android.databinding.BindingAdapter;
+import androidx.databinding.BindingAdapter;
 import android.widget.TextView;
 
 import com.yts.smartsetting.R;

@@ -1,7 +1,6 @@
 package com.yts.smartsetting.data;
 
-import android.arch.lifecycle.MutableLiveData;
-import android.support.annotation.Nullable;
+import androidx.lifecycle.MutableLiveData;
 
 public class TSLiveData<T> extends MutableLiveData<T> {
 

@@ -1,6 +1,5 @@
 package com.yts.smartsetting.view.viewmodel;
 
-import android.arch.lifecycle.MutableLiveData;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -11,7 +10,6 @@ import com.yts.smartsetting.callback.MainCallback;
 import com.yts.smartsetting.data.TSLiveData;
 import com.yts.smartsetting.utill.Keys;
 import com.yts.smartsetting.utill.SharedPrefsUtils;
-import com.yts.smartsetting.utill.ShowIntent;
 
 public class MainViewModel extends BaseViewModel {
     private MainCallback mainCallback;

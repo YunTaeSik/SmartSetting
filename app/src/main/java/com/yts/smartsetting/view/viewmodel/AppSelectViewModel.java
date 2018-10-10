@@ -1,7 +1,6 @@
 package com.yts.smartsetting.view.viewmodel;
 
 import android.app.Activity;
-import android.arch.lifecycle.MutableLiveData;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;

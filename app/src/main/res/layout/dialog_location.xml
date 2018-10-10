@@ -27,7 +27,7 @@
             android:gravity="center_vertical"
             android:orientation="horizontal">
 
-            <android.support.v7.widget.AppCompatImageView
+            <androidx.appcompat.widget.AppCompatImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:onClick="@{()->model.close()}"
@@ -101,7 +101,7 @@
                         android:gravity="end"
                         android:orientation="vertical">
 
-                        <android.support.v7.widget.AppCompatTextView
+                        <androidx.appcompat.widget.AppCompatTextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:gravity="end"
@@ -110,7 +110,7 @@
                             android:text="@{model.location.name}"
                             android:textSize="14sp" />
 
-                        <android.support.v7.widget.AppCompatTextView
+                        <androidx.appcompat.widget.AppCompatTextView
                             setVisible="@{model.isSelectLocation}"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -134,7 +134,7 @@
                     android:textSize="12sp" />
 
 
-                <LinearLayout
+                <LinearLayoutAdView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
@@ -159,7 +159,7 @@
                         android:textOff="@string/off"
                         android:textOn="@string/on" />
 
-                </LinearLayout>
+                </LinearLayoutAdView>
 
                 <LinearLayout
                     android:layout_width="match_parent"

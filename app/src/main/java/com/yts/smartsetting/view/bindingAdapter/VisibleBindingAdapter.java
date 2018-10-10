@@ -1,7 +1,7 @@
 package com.yts.smartsetting.view.bindingAdapter;
 
-import android.databinding.BindingAdapter;
-import android.support.v7.widget.AppCompatTextView;
+import androidx.databinding.BindingAdapter;
+import androidx.appcompat.widget.AppCompatTextView;
 import android.view.View;
 
 import com.yts.smartsetting.utill.NullFilter;

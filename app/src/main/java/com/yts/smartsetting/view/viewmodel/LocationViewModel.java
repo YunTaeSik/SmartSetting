@@ -1,27 +1,19 @@
 package com.yts.smartsetting.view.viewmodel;
 
 
-import android.arch.lifecycle.MutableLiveData;
 import android.content.BroadcastReceiver;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.view.View;
 import android.widget.ToggleButton;
 
-import com.airbnb.lottie.L;
 import com.google.android.gms.ads.AdListener;
-import com.google.android.gms.maps.model.LatLng;
 import com.yts.smartsetting.R;
 import com.yts.smartsetting.data.TSLiveData;
 import com.yts.smartsetting.data.model.Location;
 import com.yts.smartsetting.data.model.PlaceData;
-import com.yts.smartsetting.data.realm.RealmService;
 import com.yts.smartsetting.utill.Keys;
-import com.yts.smartsetting.utill.SendBroadcast;
-import com.yts.smartsetting.utill.ToastMake;
-import com.yts.smartsetting.view.ui.dialog.AlertDialogCreate;
 
 public class LocationViewModel extends BaseViewModel {
     public TSLiveData<Location> location = new TSLiveData<>(new Location());

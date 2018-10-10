@@ -36,7 +36,7 @@
                 android:gravity="center_vertical"
                 android:orientation="vertical">
 
-                <android.support.v7.widget.AppCompatTextView
+                <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:singleLine="true"
@@ -44,7 +44,7 @@
                     android:textSize="14sp"
                     tools:text="name" />
 
-                <android.support.v7.widget.AppCompatTextView
+                <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:singleLine="true"
@@ -61,13 +61,13 @@
                 android:gravity="center_vertical"
                 android:orientation="vertical">
 
-                <android.support.v7.widget.AppCompatTextView
+                <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/when_i_arrived"
                     android:textSize="9sp" />
 
-                <android.support.v7.widget.AppCompatTextView
+                <androidx.appcompat.widget.AppCompatTextView
                     setTurnBluetoothText="@{model.location.arriveBlueTooth}"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -76,7 +76,7 @@
                     android:textSize="12sp"
                     tools:text="name" />
 
-                <android.support.v7.widget.AppCompatTextView
+                <androidx.appcompat.widget.AppCompatTextView
                     setTurnWifiText="@{model.location.arriveWifi}"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -94,13 +94,13 @@
                 android:gravity="center_vertical"
                 android:orientation="vertical">
 
-                <android.support.v7.widget.AppCompatTextView
+                <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/when_you_go_out"
                     android:textSize="9sp" />
 
-                <android.support.v7.widget.AppCompatTextView
+                <androidx.appcompat.widget.AppCompatTextView
                     setTurnBluetoothText="@{model.location.leaveBlueTooth}"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -109,7 +109,7 @@
                     android:textSize="12sp"
                     tools:text="name" />
 
-                <android.support.v7.widget.AppCompatTextView
+                <androidx.appcompat.widget.AppCompatTextView
                     setTurnWifiText="@{model.location.leaveWifi}"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

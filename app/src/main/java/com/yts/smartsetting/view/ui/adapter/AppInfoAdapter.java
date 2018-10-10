@@ -1,12 +1,11 @@
 package com.yts.smartsetting.view.ui.adapter;
 
-import android.arch.lifecycle.ViewModelProviders;
+import androidx.lifecycle.ViewModelProviders;
 import android.content.Context;
 import android.content.pm.ResolveInfo;
-import android.databinding.DataBindingUtil;
-import android.support.annotation.NonNull;
-import android.support.v4.app.FragmentActivity;
-import android.support.v7.widget.RecyclerView;
+import androidx.databinding.DataBindingUtil;
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.Filter;
@@ -16,7 +15,6 @@ import com.yts.smartsetting.R;
 import com.yts.smartsetting.callback.BaseCallback;
 import com.yts.smartsetting.databinding.AppInfoBinding;
 import com.yts.smartsetting.databinding.EmptyAppBinding;
-import com.yts.smartsetting.utill.Keys;
 import com.yts.smartsetting.view.viewmodel.AppInfoViewModel;
 
 import java.util.ArrayList;

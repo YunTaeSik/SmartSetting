@@ -1,12 +1,10 @@
 package com.yts.smartsetting.view.viewmodel;
 
-import android.arch.lifecycle.MutableLiveData;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.graphics.drawable.Drawable;
 
 import com.yts.smartsetting.data.TSLiveData;
-import com.yts.smartsetting.utill.SharedPrefsUtils;
 
 public class AppInfoViewModel extends BaseViewModel {
     private ResolveInfo resolveInfo;

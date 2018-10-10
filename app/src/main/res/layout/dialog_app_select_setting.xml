@@ -32,7 +32,7 @@
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
 
-                <android.support.v7.widget.AppCompatImageView
+                <androidx.appcompat.widget.AppCompatImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:onClick="@{()->model.close()}"
@@ -62,7 +62,7 @@
                     android:padding="16dp"
                     android:text="@string/enabled" />
 
-                <android.support.v7.widget.SwitchCompat
+                <androidx.appcompat.widget.SwitchCompat
                     setCheck="@{model.isEnable}"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -106,8 +106,9 @@
             setBanner="@{model.adRequest}"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:background="@color/cardBackground"
-            app:adSize="SMART_BANNER"
+            app:adSize="BANNER"
             app:adUnitId="@string/banner_ad_id" />
     </LinearLayout>
 </layout>

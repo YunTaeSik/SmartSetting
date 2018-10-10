@@ -1,11 +1,10 @@
 package com.yts.smartsetting.view.viewmodel;
 
-import android.arch.lifecycle.MutableLiveData;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.support.v7.widget.SwitchCompat;
+import androidx.appcompat.widget.SwitchCompat;
 import android.view.View;
 
 import com.google.android.gms.ads.AdListener;

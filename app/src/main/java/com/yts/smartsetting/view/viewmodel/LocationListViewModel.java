@@ -1,17 +1,14 @@
 package com.yts.smartsetting.view.viewmodel;
 
 
-import android.content.BroadcastReceiver;
 import android.content.Context;
-import android.content.Intent;
-import android.content.IntentFilter;
-import android.support.v7.widget.SwitchCompat;
+
+import androidx.appcompat.widget.SwitchCompat;
 import android.view.View;
 
 import com.google.android.gms.ads.AdListener;
 import com.yts.smartsetting.data.TSLiveData;
 import com.yts.smartsetting.data.model.Location;
-import com.yts.smartsetting.data.model.PlaceData;
 import com.yts.smartsetting.data.realm.RealmService;
 import com.yts.smartsetting.utill.Keys;
 import com.yts.smartsetting.utill.SharedPrefsUtils;
@@ -19,7 +16,6 @@ import com.yts.smartsetting.utill.SharedPrefsUtils;
 import java.util.ArrayList;
 import java.util.List;
 
-import io.reactivex.Observable;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.functions.Consumer;
 
