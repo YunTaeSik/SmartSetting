@@ -134,7 +134,7 @@
                     android:textSize="12sp" />
 
 
-                <LinearLayoutAdView
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
@@ -159,7 +159,7 @@
                         android:textOff="@string/off"
                         android:textOn="@string/on" />
 
-                </LinearLayoutAdView>
+                </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
