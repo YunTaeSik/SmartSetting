@@ -2,6 +2,7 @@ package com.yts.smartsetting.utill;
 
 import android.bluetooth.BluetoothAdapter;
 import android.content.Context;
+import android.media.AudioManager;
 import android.net.wifi.WifiManager;
 
 public class Turn {
@@ -31,6 +32,19 @@ public class Turn {
                 if (wifiManager.isWifiEnabled()) {
                     wifiManager.setWifiEnabled(false);
                 }
+            }
+        }
+    }
+
+    public static void soundMode(Context context, int soundMode) {
+        AudioManager audioManager = (AudioManager) context.getApplicationContext().getSystemService(Context.AUDIO_SERVICE);
+        if (audioManager != null) {
+            if (soundMode == 1) {
+                audioManager.setRingerMode(AudioManager.RINGER_MODE_NORMAL);
+            } else if (soundMode == 2) {
+                audioManager.setRingerMode(AudioManager.RINGER_MODE_VIBRATE);
+            } else if (soundMode == 3) {
+                audioManager.setRingerMode(AudioManager.RINGER_MODE_SILENT);
             }
         }
     }

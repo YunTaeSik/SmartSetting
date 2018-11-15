@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">"スマート設定"</string>
+    <string name="setting">"設定"</string>
+    <string name="use">"使用"</string>
+    <string name="enabled">"使用するかどうか"</string>
+    <string name="search">"検索"</string>
+    <string name="save">"保存"</string>
+    <string name="location">"位置"</string>
+    <string name="basics">"基本"</string>
+    <string name="arrive">"倒錯"</string>
+    <string name="bluetooth">"Bluetooth"</string>
+    <string name="wifi">"Wi-Fi"</string>
+    <string name="cancel">"キャンセル"</string>
+    <string name="ok">"確認"</string>
+    <string name="sound">"音"</string>
+    <string name="vibration">"振動"</string>
+    <string name="silent">"無音"</string>
+
+
+    <string name="select_app">"アプリを選択"</string>
+    <string name="location_setting">"位置設定"</string>
+    <string name="app_in_use">"スマート設定使用中"</string>
+    <string name="app_content">"スマート設定を設定するにはタップします。"</string>
+    <string name="delete_location">"その場所を削除しますか？"</string>
+    <string name="contact_us">"お問い合わせ"</string>
+    <string name="sound_mode">"音モード"</string>
+    <string name="no_change">"変更なし"</string>
+
+    <string name="launch_the_app">"%s アプリを起動します。"</string>
+
+    <string name="no_app_selected">"選択されたアプリがありません。"</string>
+    <string name="no_app_available">"選択することができるアプリがありません。"</string>
+
+
+    <string name="connect_earphone">"イヤホンを接続すると、"</string>
+    <string name="connect_bluetooth">"Bluetoothを接続すると、"</string>
+    <string name="arrive_location">"位置に到着したとき"</string>
+
+    <string name="according_to_location">"所在地に基づいて"</string>
+    <string name="when_i_arrived">"到着したとき"</string>
+    <string name="when_you_go_out">"出て行ったとき"</string>
+
+    <!--error-->
+    <string name="error_permission">"権限を許可する必要が使用することができます。"</string>
+    <string name="error_email">"インストールされて電子メールプログラムがありません。"</string>
+
+    <!--hint-->
+    <string name="hint_location">"位置を選択してください。"</string>
+
+    <!--guide-->
+    <string name="msg_quit">""バック" ボタンをもう一度押すと終了します。"</string>
+    <string name="msg_earphone">"自動的に実行するアプリを選択してください。"</string>
+    <string name="msg_bluetooth">"自動的に実行するアプリを選択してください。"</string>
+    <string name="msg_location">"自動変更する設定を選択します。"</string>
+    <string name="msg_contact">"開発者にお問い合わせのメールを送信します。"</string>
+    <string name="msg_sound_mode">"妨害禁止モードを許可する必要が使用することができます。"</string>
+
+    <string name="shared_title">"招待"</string>
+    <string name="shared_message">"知人にアプリを招待し:)"</string>
+    <string name="shared_call_to_action_text">"インストールする"</string>
+</resources>

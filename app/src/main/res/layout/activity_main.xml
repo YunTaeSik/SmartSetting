@@ -230,7 +230,7 @@
                             app:srcCompat="@drawable/ic_share_black_24dp" />
                     </LinearLayout>
                 </com.google.android.material.card.MaterialCardView>
-                <!--초대-->
+                <!--문의하기-->
                 <com.google.android.material.card.MaterialCardView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

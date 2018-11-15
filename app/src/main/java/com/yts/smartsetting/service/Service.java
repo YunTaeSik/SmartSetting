@@ -7,11 +7,14 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.IBinder;
 import android.os.Looper;
+
 import androidx.annotation.Nullable;
 import androidx.core.app.ActivityCompat;
 import androidx.core.app.NotificationCompat;
+
 import android.util.Log;
 
+import com.crashlytics.android.Crashlytics;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationCallback;
 import com.google.android.gms.location.LocationRequest;
@@ -105,13 +108,25 @@ public class Service extends android.app.Service {
                                 Turn.blueTooth(isArriveBlueTooth);
                                 boolean isArriveWifi = location.isArriveWifi();
                                 Turn.wifi(getApplicationContext(), isArriveWifi);
+
+                                int soundMode = location.getArriveSoundMode();
+                                Turn.soundMode(getApplicationContext(), soundMode);
                             } else {
                                 boolean isLeaveBlueTooth = location.isLeaveBlueTooth();
                                 Turn.blueTooth(isLeaveBlueTooth);
                                 boolean isLeaveWifi = location.isLeaveWifi();
                                 Turn.wifi(getApplicationContext(), isLeaveWifi);
+
+                                int soundMode = location.getLeaveSoundMode();
+                                Turn.soundMode(getApplicationContext(), soundMode);
                             }
                         }
+                    }
+                }, new Consumer<Throwable>() {
+                    @Override
+                    public void accept(Throwable throwable) throws Exception {
+                        throwable.printStackTrace();
+                        Crashlytics.logException(throwable);
                     }
                 }));
 

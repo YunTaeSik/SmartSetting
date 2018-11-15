@@ -20,6 +20,8 @@ public class Location extends RealmObject implements Parcelable {
     private boolean arriveWifi;
     private boolean leaveBlueTooth;
     private boolean leaveWifi;
+    private int arriveSoundMode;
+    private int leaveSoundMode;
 
     public String getDate() {
         return date;
@@ -93,6 +95,22 @@ public class Location extends RealmObject implements Parcelable {
         this.leaveWifi = leaveWifi;
     }
 
+    public int getArriveSoundMode() {
+        return arriveSoundMode;
+    }
+
+    public void setArriveSoundMode(int arriveSoundMode) {
+        this.arriveSoundMode = arriveSoundMode;
+    }
+
+    public int getLeaveSoundMode() {
+        return leaveSoundMode;
+    }
+
+    public void setLeaveSoundMode(int leaveSoundMode) {
+        this.leaveSoundMode = leaveSoundMode;
+    }
+
     public Location() {
         setDate(String.valueOf(System.currentTimeMillis()));
     }
@@ -118,6 +136,10 @@ public class Location extends RealmObject implements Parcelable {
         setLongitude(String.valueOf(placeData.getLatLng().longitude));
     }
 
+    public boolean isValidity() {
+        return getName() != null && getName().length() > 0 && getAddress() != null && getAddress().length() > 0 && getLatitude() != null && getLatitude().length() > 0 && getLongitude() != null && getLongitude().length() > 0;
+    }
+
     @Override
     public int describeContents() {
         return 0;
@@ -134,6 +156,8 @@ public class Location extends RealmObject implements Parcelable {
         dest.writeByte(this.arriveWifi ? (byte) 1 : (byte) 0);
         dest.writeByte(this.leaveBlueTooth ? (byte) 1 : (byte) 0);
         dest.writeByte(this.leaveWifi ? (byte) 1 : (byte) 0);
+        dest.writeInt(this.arriveSoundMode);
+        dest.writeInt(this.leaveSoundMode);
     }
 
     protected Location(Parcel in) {
@@ -146,6 +170,8 @@ public class Location extends RealmObject implements Parcelable {
         this.arriveWifi = in.readByte() != 0;
         this.leaveBlueTooth = in.readByte() != 0;
         this.leaveWifi = in.readByte() != 0;
+        this.arriveSoundMode = in.readInt();
+        this.leaveSoundMode = in.readInt();
     }
 
     public static final Creator<Location> CREATOR = new Creator<Location>() {
@@ -159,8 +185,4 @@ public class Location extends RealmObject implements Parcelable {
             return new Location[size];
         }
     };
-
-    public boolean isValidity() {
-        return getName() != null && getName().length() > 0 && getAddress() != null && getAddress().length() > 0 && getLatitude() != null && getLatitude().length() > 0 && getLongitude() != null && getLongitude().length() > 0;
-    }
 }

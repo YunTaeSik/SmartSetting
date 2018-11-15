@@ -4,6 +4,7 @@ import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.content.Context;
 import android.os.Build;
+
 import androidx.multidex.MultiDex;
 import androidx.multidex.MultiDexApplication;
 
@@ -21,9 +22,9 @@ public class MyApplication extends MultiDexApplication {
         Realm.init(this);
         RealmConfiguration config = new RealmConfiguration.Builder()
                 .name("TsSmartSetting.realm")
-                .schemaVersion(0)
+                .schemaVersion(1)
                 .migration(new Migration())
-                .deleteRealmIfMigrationNeeded()
+                // .deleteRealmIfMigrationNeeded()
                 .build();
         Realm.setDefaultConfiguration(config);
 

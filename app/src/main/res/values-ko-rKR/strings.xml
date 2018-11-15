@@ -13,6 +13,9 @@
     <string name="wifi">"Wi-Fi"</string>
     <string name="cancel">"취소"</string>
     <string name="ok">"확인"</string>
+    <string name="sound">"소리"</string>
+    <string name="vibration">"진동"</string>
+    <string name="silent">"무음"</string>
 
 
     <string name="select_app">"앱 선택"</string>
@@ -21,6 +24,8 @@
     <string name="app_content">"스마트 설정을 설정하시려면 터치하세요."</string>
     <string name="delete_location">"해당 위치를 삭제하시겠습니까?"</string>
     <string name="contact_us">"문의하기"</string>
+    <string name="sound_mode">"소리 모드"</string>
+    <string name="no_change">"변경 없음"</string>
 
     <string name="launch_the_app">"%s 앱을 실행합니다."</string>
 
@@ -49,6 +54,7 @@
     <string name="msg_bluetooth">"자동으로 실행할 앱을 선택해주세요."</string>
     <string name="msg_location">"자동 변경할 설정을 선택하세요."</string>
     <string name="msg_contact">"개발자에게 문의메일을 보냅니다."</string>
+    <string name="msg_sound_mode">"방해금지모드를 허용해야 사용 할 수 있습니다."</string>
 
     <string name="shared_title">초대하기</string>
     <string name="shared_message">지인에게 어플을 초대합니다 :)</string>

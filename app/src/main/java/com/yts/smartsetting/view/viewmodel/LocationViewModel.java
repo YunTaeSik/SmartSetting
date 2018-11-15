@@ -33,7 +33,7 @@ public class LocationViewModel extends BaseViewModel {
             @Override
             public void onAdClosed() {
                 if (location != null && location.getValue() != null) {
-                    startLocationDialog(new Location(location.getValue()));
+                    startLocationDialog(location.getValue());
                 }
                 interstitialAd.loadAd(adRequest);
             }
@@ -55,7 +55,24 @@ public class LocationViewModel extends BaseViewModel {
                 location.getValue().setLeaveWifi(check);
             }
         }
+    }
 
+    public void toggleSoundMode(View view) {
+        int id = view.getId();
+        Location lo = location.getValue();
+
+        if (lo != null) {
+            if (id == R.id.btn_arrive_sound_mode) {
+                int soundMode = lo.getArriveSoundMode();
+                soundMode = (soundMode + 1) % 4;
+                lo.setArriveSoundMode(soundMode);
+            } else if (id == R.id.btn_leave_sound_mode) {
+                int soundMode = lo.getLeaveSoundMode();
+                soundMode = (soundMode + 1) % 4;
+                lo.setLeaveSoundMode(soundMode);
+            }
+            location.setValue(lo);
+        }
     }
 
     public void startLocationDialog() {
@@ -63,7 +80,7 @@ public class LocationViewModel extends BaseViewModel {
             interstitialAd.show();
         } else {
             if (location != null && location.getValue() != null) {
-                startLocationDialog(new Location(location.getValue()));
+                startLocationDialog(location.getValue());
             }
         }
     }

@@ -1,18 +1,24 @@
 package com.yts.smartsetting;
 
 import androidx.lifecycle.ViewModelProviders;
+
+import android.app.NotificationManager;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.ResolveInfo;
 import android.os.Build;
 import android.os.Bundle;
+
 import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.provider.Settings;
 import android.transition.TransitionInflater;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.Toast;
 
 import com.google.android.gms.location.places.Place;
 import com.google.android.gms.location.places.ui.PlacePicker;
@@ -180,8 +186,6 @@ public class BaseActivity extends AppCompatActivity implements BaseCallback {
             public void onClick(DialogInterface dialogInterface, int i) {
                 RealmService.deleteLocation(location);
                 SendBroadcast.editLocation(BaseActivity.this);
-             /*   LocationListDialog dialog = LocationListDialog.newInstance();
-                startFragmentDialog(dialog, android.R.transition.slide_right);*/
             }
         });
     }
@@ -203,6 +207,15 @@ public class BaseActivity extends AppCompatActivity implements BaseCallback {
         PermissionCheck.loactionCheck(this, new PermissionListener() {
             @Override
             public void onPermissionGranted() {
+                NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+                if (notificationManager != null) {
+                    if (Build.VERSION.SDK_INT >= 24 && !notificationManager.isNotificationPolicyAccessGranted()) {
+                        Intent intent = new Intent(android.provider.Settings.ACTION_NOTIFICATION_POLICY_ACCESS_SETTINGS);
+                        startActivity(intent);
+                        ToastMake.make(BaseActivity.this, R.string.msg_sound_mode);
+                        return;
+                    }
+                }
                 LocationListDialog dialog = LocationListDialog.newInstance();
                 startFragmentDialog(dialog, android.R.transition.slide_right);
             }

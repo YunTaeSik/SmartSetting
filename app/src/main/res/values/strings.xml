@@ -1,10 +1,20 @@
-<resources>
-    <string name="ad_app_id">"ca-app-pub-9788292917303375~7718408116"</string>
-    <string name="banner_ad_id">"ca-app-pub-9788292917303375/2233722111"</string>
-    <string name="screen_ad_id">"ca-app-pub-9788292917303375/4006802931"</string>
-    <string name="reward_ad_id">"ca-app-pub-9788292917303375/3590817309"</string>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="ad_app_id" tools:ignore="MissingTranslation">"ca-app-pub-9788292917303375~7718408116"</string>
+    <string name="banner_ad_id" tools:ignore="MissingTranslation">"ca-app-pub-9788292917303375/2233722111"</string>
+    <string name="screen_ad_id" tools:ignore="MissingTranslation">"ca-app-pub-9788292917303375/4006802931"</string>
+    <string name="reward_ad_id" tools:ignore="MissingTranslation">"ca-app-pub-9788292917303375/3590817309"</string>
 
-    <string name="invitation_deep_link">"https://sn3d4.app.goo.gl/SmartSetting"</string>
+    <string name="invitation_deep_link" tools:ignore="MissingTranslation">"https://sn3d4.app.goo.gl/SmartSetting"</string>
+    <string name="contact_email" tools:ignore="MissingTranslation">"sky877kr@gmail.com"</string>
+
+    <string name="notification_channel_id" tools:ignore="MissingTranslation">"notification_ts_channel_id"</string>
+    <string name="notification_channel_name" tools:ignore="MissingTranslation">"notification_ts_channel_name"</string>
+
+
+    <string name="bluetooth_turn" tools:ignore="MissingTranslation">"Bluetooth : %s"</string>
+    <string name="wifi_turn" tools:ignore="MissingTranslation">"Wifi : %s"</string>
+    <string name="on" tools:ignore="MissingTranslation">"ON"</string>
+    <string name="off" tools:ignore="MissingTranslation">"OFF"</string>
 
     <string name="app_name">SmartSetting</string>
     <string name="setting">"Setting"</string>
@@ -17,14 +27,12 @@
     <string name="bluetooth">"Bluetooth"</string>
     <string name="arrive">"Arrive"</string>
     <string name="wifi">"Wi-Fi"</string>
-    <string name="on">"ON"</string>
-    <string name="off">"OFF"</string>
     <string name="cancel">"Cancel"</string>
-    <string name="ok">"Ok"</string>
-    <string name="contact_email">"sky877kr@gmail.com"</string>
+    <string name="ok">"ok"</string>
+    <string name="sound">"Sound"</string>
+    <string name="vibration">"Vibration"</string>
+    <string name="silent">"Silent"</string>
 
-    <string name="notification_channel_id">"notification_ts_channel_id"</string>
-    <string name="notification_channel_name">"notification_ts_channel_name"</string>
 
     <string name="select_app">"Select App"</string>
     <string name="location_setting">"Location Settings"</string>
@@ -32,9 +40,8 @@
     <string name="app_content">"Touch to set smart settings."</string>
     <string name="delete_location">"Are you sure you want to delete this location?"</string>
     <string name="contact_us">"Contact us"</string>
-
-    <string name="bluetooth_turn">"Bluetooth : %s"</string>
-    <string name="wifi_turn">"Wifi : %s"</string>
+    <string name="sound_mode">"Sound mode"</string>
+    <string name="no_change">"No change"</string>
 
     <string name="launch_the_app">"Launch the %s app."</string>
     <string name="no_app_selected">"No apps selected."</string>
@@ -62,6 +69,7 @@
     <string name="msg_bluetooth">"Please select an app to run automatically"</string>
     <string name="msg_location">"Select the settings you want to change automatically."</string>
     <string name="msg_contact">"Send an email to the developer."</string>
+    <string name="msg_sound_mode">"You must enable Do Not Disturb mode before you can use it."</string>
 
 
     <string name="shared_title">Invite</string>

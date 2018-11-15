@@ -1,9 +1,12 @@
 package com.yts.smartsetting.view.bindingAdapter;
 
 import android.content.Context;
+
 import androidx.databinding.BindingAdapter;
+
 import android.widget.TextView;
 
+import com.google.android.material.button.MaterialButton;
 import com.yts.smartsetting.R;
 
 public class TextBindingAdapter {
@@ -26,5 +29,37 @@ public class TextBindingAdapter {
         Context context = view.getContext();
         String turn = enable ? context.getString(R.string.on) : context.getString(R.string.off);
         view.setText(view.getContext().getString(R.string.wifi_turn, turn));
+    }
+
+    @BindingAdapter({"setSoundMode"})
+    public static void setSoundMode(TextView view, int mode) {
+        Context context = view.getContext();
+        String text = context.getString(R.string.sound_mode)+" : ";
+        if (mode == 0) {
+            text += context.getString(R.string.no_change);
+        } else if (mode == 1) {
+            text += context.getString(R.string.sound);
+        } else if (mode == 2) {
+            text += context.getString(R.string.vibration);
+        } else if (mode == 3) {
+            text += context.getString(R.string.silent);
+        }
+        view.setText(text);
+    }
+
+    @BindingAdapter({"setSoundMode"})
+    public static void setSoundMode(MaterialButton view, int mode) {
+        Context context = view.getContext();
+        String text = "";
+        if (mode == 0) {
+            text = context.getString(R.string.no_change);
+        } else if (mode == 1) {
+            text = context.getString(R.string.sound);
+        } else if (mode == 2) {
+            text = context.getString(R.string.vibration);
+        } else if (mode == 3) {
+            text = context.getString(R.string.silent);
+        }
+        view.setText(text);
     }
 }

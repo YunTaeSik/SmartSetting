@@ -67,6 +67,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="48dp"
                 android:orientation="vertical">
 
                 <TextView
@@ -187,6 +188,34 @@
                         android:textOn="@string/on" />
                 </LinearLayout>
 
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:foreground="?android:selectableItemBackgroundBorderless"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:padding="16dp"
+                        android:text="@string/sound_mode" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btn_arrive_sound_mode"
+                        setSoundMode="@{model.location.arriveSoundMode}"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginRight="16dp"
+                        android:onClick="@{(v)->model.toggleSoundMode(v)}"
+                        app:backgroundTint="@color/cardBackground"
+                        app:cornerRadius="2dp" />
+                </LinearLayout>
+
+
                 <View style="@style/lineView" />
 
                 <!--나갔을때-->
@@ -251,17 +280,45 @@
                         android:textOn="@string/on" />
                 </LinearLayout>
 
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:foreground="?android:selectableItemBackgroundBorderless"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:padding="16dp"
+                        android:text="@string/sound_mode" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btn_leave_sound_mode"
+                        setSoundMode="@{model.location.leaveSoundMode}"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginRight="16dp"
+                        android:onClick="@{(v)->model.toggleSoundMode(v)}"
+                        app:backgroundTint="@color/cardBackground"
+                        app:cornerRadius="2dp" />
+
+                </LinearLayout>
+
                 <View style="@style/lineView" />
             </LinearLayout>
         </ScrollView>
-<!--
-        <com.google.android.gms.ads.AdView
-            setBanner="@{model.adRequest}"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:adSize="SMART_BANNER"
-            android:background="@color/cardBackground"
-            app:adUnitId="@string/banner_ad_id" />-->
+        <!--
+                <com.google.android.gms.ads.AdView
+                    setBanner="@{model.adRequest}"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:adSize="SMART_BANNER"
+                    android:background="@color/cardBackground"
+                    app:adUnitId="@string/banner_ad_id" />-->
     </LinearLayout>
 
 
