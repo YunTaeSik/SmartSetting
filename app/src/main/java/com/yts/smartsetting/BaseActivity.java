@@ -40,6 +40,7 @@ import com.yts.smartsetting.view.ui.dialog.LocationListDialog;
 import com.yts.smartsetting.view.viewmodel.BaseViewModel;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import io.reactivex.disposables.CompositeDisposable;
 
@@ -221,7 +222,7 @@ public class BaseActivity extends AppCompatActivity implements BaseCallback {
             }
 
             @Override
-            public void onPermissionDenied(ArrayList<String> deniedPermissions) {
+            public void onPermissionDenied(List<String> deniedPermissions) {
                 ToastMake.make(BaseActivity.this, R.string.error_permission);
             }
         });
@@ -243,7 +244,7 @@ public class BaseActivity extends AppCompatActivity implements BaseCallback {
             }
 
             @Override
-            public void onPermissionDenied(ArrayList<String> deniedPermissions) {
+            public void onPermissionDenied(List<String> deniedPermissions) {
 
             }
         });
